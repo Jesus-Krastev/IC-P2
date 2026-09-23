@@ -8,6 +8,11 @@
 // de archivos externos). Combina ondas senoidales con ruido pseudoaleatorio.
 Image generate_synthetic_image(int width, int height, unsigned seed);
 
+// Utilidad: carga una imagen PPM/PGM binaria (P5 para 1 canal, P6 para
+// 3 canales), el mismo formato que escribe write_pnm. No requiere ninguna
+// librería externa.
+Image read_pnm(const std::string& path);
+
 // Etapa 2: conversión a escala de grises (fórmula de luminosidad estándar).
 Image to_grayscale(const Image& rgb);
 

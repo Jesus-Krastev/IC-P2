@@ -1,5 +1,6 @@
 #include "pipeline.hpp"
 #include <algorithm>
+#include <cctype>
 #include <cmath>
 #include <cstdio>
 #include <stdexcept>
@@ -209,4 +210,60 @@ void write_pnm(const Image& img, const std::string& path) {
     }
     std::fwrite(img.data.data(), 1, img.data.size(), f);
     std::fclose(f);
+}
+
+// ---------------------------------------------------------------------
+// Utilidad de carga (PGM/PPM binario, sin dependencias externas)
+// ---------------------------------------------------------------------
+// Salta espacios en blanco y comentarios ('#' hasta fin de linea), tal y
+// como exige el formato de cabecera PNM.
+static void skip_pnm_whitespace_and_comments(FILE* f) {
+    int c = std::fgetc(f);
+    while (c != EOF) {
+        if (c == '#') {
+            while (c != EOF && c != '\n') c = std::fgetc(f);
+        } else if (!std::isspace(c)) {
+            std::ungetc(c, f);
+            return;
+        }
+        c = std::fgetc(f);
+    }
+}
+
+Image read_pnm(const std::string& path) {
+    FILE* f = std::fopen(path.c_str(), "rb");
+    if (!f) throw std::runtime_error("No se pudo abrir " + path + " para lectura");
+
+    char magic[3] = {0};
+    if (std::fread(magic, 1, 2, f) != 2) {
+        std::fclose(f);
+        throw std::runtime_error(path + " no es un archivo PNM valido");
+    }
+    int channels;
+    if (magic[0] == 'P' && magic[1] == '5') channels = 1;
+    else if (magic[0] == 'P' && magic[1] == '6') channels = 3;
+    else {
+        std::fclose(f);
+        throw std::runtime_error(path + " no es P5/P6 (unico formato PNM soportado)");
+    }
+
+    skip_pnm_whitespace_and_comments(f);
+    int width = 0;
+    if (std::fscanf(f, "%d", &width) != 1) { std::fclose(f); throw std::runtime_error("Cabecera PNM invalida en " + path); }
+    skip_pnm_whitespace_and_comments(f);
+    int height = 0;
+    if (std::fscanf(f, "%d", &height) != 1) { std::fclose(f); throw std::runtime_error("Cabecera PNM invalida en " + path); }
+    skip_pnm_whitespace_and_comments(f);
+    int maxval = 0;
+    if (std::fscanf(f, "%d", &maxval) != 1) { std::fclose(f); throw std::runtime_error("Cabecera PNM invalida en " + path); }
+    if (maxval != 255) { std::fclose(f); throw std::runtime_error(path + ": solo se soporta maxval=255"); }
+    std::fgetc(f); // el unico caracter de espacio en blanco tras el maxval
+
+    Image img(width, height, channels);
+    size_t n = std::fread(img.data.data(), 1, img.data.size(), f);
+    std::fclose(f);
+    if (n != img.data.size()) {
+        throw std::runtime_error(path + ": el archivo esta truncado respecto a su cabecera");
+    }
+    return img;
 }
