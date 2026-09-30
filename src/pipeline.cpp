@@ -7,90 +7,83 @@
 #include <vector>
 
 // ---------------------------------------------------------------------
-// Etapa 1: generación sintética de imagen (RGB)
+// Etapa 1: lectura de imagen real desde disco (PNM binario P5/P6)
 // ---------------------------------------------------------------------
-// Genera un fondo en degradado suave y le superpone un conjunto de formas
-// geométricas (círculos y rectángulos) de color solido. Las formas dan
-// bordes reales y nítidos que Sobel + umbralización puedan detectar con
-// claridad (un degradado puro, sin formas, apenas tiene gradiente).
-// Todo es determinista a partir de `seed`.
-Image generate_synthetic_image(int width, int height, unsigned seed) {
-    Image img(width, height, 3);
+// Lee un token de la cabecera PNM, saltando espacios en blanco y
+// comentarios (los que empiezan por '#' hasta fin de linea), tal como
+// exige el estandar del formato.
+static std::string read_pnm_token(FILE* f) {
+    int c;
+    for (;;) {
+        c = std::fgetc(f);
+        if (c == EOF) throw std::runtime_error("PNM: fin de archivo inesperado en la cabecera");
+        if (c == '#') { while (c != '\n' && c != EOF) c = std::fgetc(f); continue; }
+        if (!std::isspace(c)) break;
+    }
+    std::string tok;
+    tok.push_back(static_cast<char>(c));
+    for (;;) {
+        c = std::fgetc(f);
+        if (c == EOF || std::isspace(c)) break;
+        tok.push_back(static_cast<char>(c));
+    }
+    return tok;
+}
 
-    auto lcg = [](unsigned& state) -> unsigned {
-        state = state * 1664525u + 1013904223u;
-        return state;
-    };
-    unsigned state = seed;
-    auto rnd01 = [&]() { return static_cast<double>(lcg(state) % 100000) / 100000.0; };
+Image read_ppm(const std::string& path) {
+    FILE* f = std::fopen(path.c_str(), "rb");
+    if (!f) throw std::runtime_error("No se pudo abrir '" + path + "' para lectura");
 
-    auto clamp8 = [](double v) -> uint8_t {
-        if (v < 0.0) v = 0.0;
-        if (v > 255.0) v = 255.0;
-        return static_cast<uint8_t>(v);
-    };
-
-    // Fondo: degradado suave (dos colores interpolados según la posición).
-    for (int y = 0; y < height; ++y) {
-        for (int x = 0; x < width; ++x) {
-            double fx = static_cast<double>(x) / width;
-            double fy = static_cast<double>(y) / height;
-            double t = 0.5 * (fx + fy);
-            double r = 30.0 + 60.0 * t;
-            double g = 40.0 + 50.0 * (1.0 - t);
-            double b = 80.0 + 70.0 * std::sin(t * 3.14159);
-            img.at(x, y, 0) = clamp8(r);
-            img.at(x, y, 1) = clamp8(g);
-            img.at(x, y, 2) = clamp8(b);
-        }
+    std::string magic = read_pnm_token(f);
+    int channels;
+    if (magic == "P6") channels = 3;
+    else if (magic == "P5") channels = 1;
+    else {
+        std::fclose(f);
+        throw std::runtime_error(path + ": formato PNM no soportado ('" + magic + "'), se esperaba P5 o P6");
     }
 
-    // Formas de color solido con bordes nítidos.
-    int num_shapes = 14;
-    for (int s = 0; s < num_shapes; ++s) {
-        double cx = rnd01() * width;
-        double cy = rnd01() * height;
-        double size = (0.08 + rnd01() * 0.18) * std::min(width, height);
-        uint8_t cr = static_cast<uint8_t>(rnd01() * 255);
-        uint8_t cg = static_cast<uint8_t>(rnd01() * 255);
-        uint8_t cb = static_cast<uint8_t>(rnd01() * 255);
-        bool is_circle = rnd01() < 0.5;
+    int width = std::stoi(read_pnm_token(f));
+    int height = std::stoi(read_pnm_token(f));
+    int maxval = std::stoi(read_pnm_token(f));
+    if (maxval != 255) {
+        std::fclose(f);
+        throw std::runtime_error(path + ": solo se soporta maxval=255 (tiene " + std::to_string(maxval) + ")");
+    }
+    // Nota: el caracter separador entre el token de maxval y los datos
+    // binarios ya ha sido consumido dentro de read_pnm_token (su bucle
+    // de lectura de token se detiene tras leer, no antes de leer, el
+    // primer caracter de espacio en blanco que encuentra).
 
-        int x0 = static_cast<int>(std::max(0.0, cx - size));
-        int x1 = static_cast<int>(std::min(static_cast<double>(width - 1), cx + size));
-        int y0 = static_cast<int>(std::max(0.0, cy - size));
-        int y1 = static_cast<int>(std::min(static_cast<double>(height - 1), cy + size));
+    Image img(width, height, channels);
+    size_t expected = img.data.size();
+    size_t got = std::fread(img.data.data(), 1, expected, f);
+    std::fclose(f);
+    if (got != expected) {
+        throw std::runtime_error(path + ": los bytes leidos (" + std::to_string(got) +
+                                  ") no coinciden con width*height*channels (" + std::to_string(expected) + ")");
+    }
+    return img;
+}
 
-        for (int y = y0; y <= y1; ++y) {
-            for (int x = x0; x <= x1; ++x) {
-                bool inside;
-                if (is_circle) {
-                    double dx = x - cx, dy = y - cy;
-                    inside = (dx * dx + dy * dy) <= (size * size);
-                } else {
-                    inside = true; // ya estamos dentro del bounding box del rectángulo
-                }
-                if (inside) {
-                    img.at(x, y, 0) = cr;
-                    img.at(x, y, 1) = cg;
-                    img.at(x, y, 2) = cb;
-                }
+// ---------------------------------------------------------------------
+// Redimensionado (vecino mas cercano)
+// ---------------------------------------------------------------------
+Image resize_image(const Image& img, int new_width, int new_height) {
+    if (new_width <= 0 || new_height <= 0) throw std::runtime_error("resize_image: dimensiones invalidas");
+    Image out(new_width, new_height, img.channels);
+    for (int y = 0; y < new_height; ++y) {
+        int sy = static_cast<int>(static_cast<long long>(y) * img.height / new_height);
+        if (sy >= img.height) sy = img.height - 1;
+        for (int x = 0; x < new_width; ++x) {
+            int sx = static_cast<int>(static_cast<long long>(x) * img.width / new_width);
+            if (sx >= img.width) sx = img.width - 1;
+            for (int c = 0; c < img.channels; ++c) {
+                out.at(x, y, c) = img.at(sx, sy, c);
             }
         }
     }
-
-    // Ruido pseudoaleatorio determinista de baja amplitud, para que el
-    // suavizado gaussiano tenga un efecto visible ademas de limpiar ruido.
-    for (int y = 0; y < height; ++y) {
-        for (int x = 0; x < width; ++x) {
-            double noise = static_cast<double>(lcg(state) % 13) - 6.0;
-            img.at(x, y, 0) = clamp8(img.at(x, y, 0) + noise);
-            img.at(x, y, 1) = clamp8(img.at(x, y, 1) + noise);
-            img.at(x, y, 2) = clamp8(img.at(x, y, 2) + noise);
-        }
-    }
-
-    return img;
+    return out;
 }
 
 // ---------------------------------------------------------------------
@@ -194,6 +187,171 @@ Image threshold(const Image& gradient, uint8_t thresh) {
 }
 
 // ---------------------------------------------------------------------
+// Rama: estadisticas por canal RGB (reduccion simple)
+// ---------------------------------------------------------------------
+RGBStats compute_rgb_stats(const Image& rgb) {
+    if (rgb.channels != 3) throw std::runtime_error("compute_rgb_stats espera 3 canales");
+    RGBStats stats{};
+    long n = static_cast<long>(rgb.width) * rgb.height;
+    double sum[3] = {0.0, 0.0, 0.0};
+    double sumsq[3] = {0.0, 0.0, 0.0};
+
+    for (int y = 0; y < rgb.height; ++y) {
+        for (int x = 0; x < rgb.width; ++x) {
+            for (int c = 0; c < 3; ++c) {
+                double v = rgb.at(x, y, c);
+                sum[c] += v;
+                sumsq[c] += v * v;
+            }
+        }
+    }
+    for (int c = 0; c < 3; ++c) {
+        double mean = sum[c] / n;
+        double var = sumsq[c] / n - mean * mean;
+        if (var < 0.0) var = 0.0; // solo por redondeo numerico
+        stats.mean[c] = mean;
+        stats.stddev[c] = std::sqrt(var);
+    }
+    return stats;
+}
+
+// ---------------------------------------------------------------------
+// Rama: histograma + Otsu (segmentacion automatica sobre la intensidad)
+// ---------------------------------------------------------------------
+Histogram compute_histogram(const Image& gray) {
+    if (gray.channels != 1) throw std::runtime_error("compute_histogram espera 1 canal");
+    Histogram hist{};
+    hist.fill(0);
+    for (int y = 0; y < gray.height; ++y)
+        for (int x = 0; x < gray.width; ++x)
+            hist[gray.at(x, y, 0)]++;
+    return hist;
+}
+
+uint8_t otsu_threshold(const Histogram& hist, long total_pixels) {
+    // Metodo de Otsu: recorre los 256 umbrales posibles y se queda con el
+    // que maximiza la varianza entre clases (fondo vs. primer plano).
+    double sum_total = 0.0;
+    for (int i = 0; i < 256; ++i) sum_total += static_cast<double>(i) * hist[i];
+
+    double sum_bg = 0.0;
+    long w_bg = 0;
+    double best_variance = -1.0;
+    int best_thresh = 0;
+
+    for (int t = 0; t < 256; ++t) {
+        w_bg += hist[t];
+        if (w_bg == 0) continue;
+        long w_fg = total_pixels - w_bg;
+        if (w_fg == 0) break;
+
+        sum_bg += static_cast<double>(t) * hist[t];
+        double mean_bg = sum_bg / static_cast<double>(w_bg);
+        double mean_fg = (sum_total - sum_bg) / static_cast<double>(w_fg);
+        double diff = mean_bg - mean_fg;
+
+        double between = static_cast<double>(w_bg) * static_cast<double>(w_fg) * diff * diff;
+        if (between > best_variance) {
+            best_variance = between;
+            best_thresh = t;
+        }
+    }
+    return static_cast<uint8_t>(best_thresh);
+}
+
+// ---------------------------------------------------------------------
+// Rama: deteccion de esquinas (Moravec, precursor simplificado de Harris)
+// ---------------------------------------------------------------------
+Image detect_corners_moravec(const Image& gray, int window_radius,
+                              long response_threshold, int nms_radius) {
+    if (gray.channels != 1) throw std::runtime_error("detect_corners_moravec espera 1 canal");
+    int w = gray.width, h = gray.height;
+
+    // 4 direcciones principales de desplazamiento de la ventana.
+    static const int dirs[4][2] = {{1, 0}, {0, 1}, {1, 1}, {1, -1}};
+
+    std::vector<long> score(static_cast<size_t>(w) * h, 0);
+
+    for (int y = 0; y < h; ++y) {
+        for (int x = 0; x < w; ++x) {
+            long min_ssd = -1;
+            for (const auto& d : dirs) {
+                long ssd = 0;
+                for (int wy = -window_radius; wy <= window_radius; ++wy) {
+                    for (int wx = -window_radius; wx <= window_radius; ++wx) {
+                        int p1 = gray.clamped(x + wx, y + wy);
+                        int p2 = gray.clamped(x + wx + d[0], y + wy + d[1]);
+                        int diff = p1 - p2;
+                        ssd += static_cast<long>(diff) * diff;
+                    }
+                }
+                if (min_ssd < 0 || ssd < min_ssd) min_ssd = ssd;
+            }
+            score[static_cast<size_t>(y) * w + x] = min_ssd;
+        }
+    }
+
+    // Umbralizacion + supresion de no-maximos local (evita "nubes" de
+    // esquinas detectadas alrededor del mismo punto real).
+    Image out(w, h, 1);
+    for (int y = 0; y < h; ++y) {
+        for (int x = 0; x < w; ++x) {
+            long s = score[static_cast<size_t>(y) * w + x];
+            if (s < response_threshold) continue;
+
+            bool is_max = true;
+            for (int ny = -nms_radius; ny <= nms_radius && is_max; ++ny) {
+                for (int nx = -nms_radius; nx <= nms_radius; ++nx) {
+                    if (nx == 0 && ny == 0) continue;
+                    int xx = x + nx, yy = y + ny;
+                    if (xx < 0 || yy < 0 || xx >= w || yy >= h) continue;
+                    if (score[static_cast<size_t>(yy) * w + xx] > s) { is_max = false; break; }
+                }
+            }
+            if (is_max) out.at(x, y, 0) = 255;
+        }
+    }
+    return out;
+}
+
+// ---------------------------------------------------------------------
+// Combinacion final (fan-in): bordes en rojo, esquinas como circulos verdes
+// ---------------------------------------------------------------------
+Image compose_annotated(const Image& base_rgb, const Image& edge_map, const Image& corner_map) {
+    if (base_rgb.channels != 3) throw std::runtime_error("compose_annotated espera base RGB");
+    Image out = base_rgb; // copia
+    int w = out.width, h = out.height;
+
+    for (int y = 0; y < h; ++y) {
+        for (int x = 0; x < w; ++x) {
+            if (edge_map.at(x, y, 0) > 0) {
+                out.at(x, y, 0) = 255;
+                out.at(x, y, 1) = 0;
+                out.at(x, y, 2) = 0;
+            }
+        }
+    }
+
+    const int radius = 3;
+    for (int y = 0; y < h; ++y) {
+        for (int x = 0; x < w; ++x) {
+            if (corner_map.at(x, y, 0) == 0) continue;
+            for (int dy = -radius; dy <= radius; ++dy) {
+                for (int dx = -radius; dx <= radius; ++dx) {
+                    if (dx * dx + dy * dy > radius * radius) continue;
+                    int xx = x + dx, yy = y + dy;
+                    if (xx < 0 || yy < 0 || xx >= w || yy >= h) continue;
+                    out.at(xx, yy, 0) = 0;
+                    out.at(xx, yy, 1) = 255;
+                    out.at(xx, yy, 2) = 0;
+                }
+            }
+        }
+    }
+    return out;
+}
+
+// ---------------------------------------------------------------------
 // Utilidad de guardado (PGM/PPM binario, sin dependencias externas)
 // ---------------------------------------------------------------------
 void write_pnm(const Image& img, const std::string& path) {
@@ -210,60 +368,4 @@ void write_pnm(const Image& img, const std::string& path) {
     }
     std::fwrite(img.data.data(), 1, img.data.size(), f);
     std::fclose(f);
-}
-
-// ---------------------------------------------------------------------
-// Utilidad de carga (PGM/PPM binario, sin dependencias externas)
-// ---------------------------------------------------------------------
-// Salta espacios en blanco y comentarios ('#' hasta fin de linea), tal y
-// como exige el formato de cabecera PNM.
-static void skip_pnm_whitespace_and_comments(FILE* f) {
-    int c = std::fgetc(f);
-    while (c != EOF) {
-        if (c == '#') {
-            while (c != EOF && c != '\n') c = std::fgetc(f);
-        } else if (!std::isspace(c)) {
-            std::ungetc(c, f);
-            return;
-        }
-        c = std::fgetc(f);
-    }
-}
-
-Image read_pnm(const std::string& path) {
-    FILE* f = std::fopen(path.c_str(), "rb");
-    if (!f) throw std::runtime_error("No se pudo abrir " + path + " para lectura");
-
-    char magic[3] = {0};
-    if (std::fread(magic, 1, 2, f) != 2) {
-        std::fclose(f);
-        throw std::runtime_error(path + " no es un archivo PNM valido");
-    }
-    int channels;
-    if (magic[0] == 'P' && magic[1] == '5') channels = 1;
-    else if (magic[0] == 'P' && magic[1] == '6') channels = 3;
-    else {
-        std::fclose(f);
-        throw std::runtime_error(path + " no es P5/P6 (unico formato PNM soportado)");
-    }
-
-    skip_pnm_whitespace_and_comments(f);
-    int width = 0;
-    if (std::fscanf(f, "%d", &width) != 1) { std::fclose(f); throw std::runtime_error("Cabecera PNM invalida en " + path); }
-    skip_pnm_whitespace_and_comments(f);
-    int height = 0;
-    if (std::fscanf(f, "%d", &height) != 1) { std::fclose(f); throw std::runtime_error("Cabecera PNM invalida en " + path); }
-    skip_pnm_whitespace_and_comments(f);
-    int maxval = 0;
-    if (std::fscanf(f, "%d", &maxval) != 1) { std::fclose(f); throw std::runtime_error("Cabecera PNM invalida en " + path); }
-    if (maxval != 255) { std::fclose(f); throw std::runtime_error(path + ": solo se soporta maxval=255"); }
-    std::fgetc(f); // el unico caracter de espacio en blanco tras el maxval
-
-    Image img(width, height, channels);
-    size_t n = std::fread(img.data.data(), 1, img.data.size(), f);
-    std::fclose(f);
-    if (n != img.data.size()) {
-        throw std::runtime_error(path + ": el archivo esta truncado respecto a su cabecera");
-    }
-    return img;
 }
