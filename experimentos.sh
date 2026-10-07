@@ -13,6 +13,9 @@
 # e imprime al final las tablas listas para pegar en la memoria.
 
 set -u
+# Formato numerico con punto decimal: con un locale espanol, awk escribe 0,304 y
+# rompe los CSV separados por comas.
+export LC_ALL=C
 CXX="${CXX:-g++}"
 REPS="${REPS:-3}"
 IMG="${IMG:-leon.ppm}"
@@ -52,6 +55,8 @@ build() { # $1 = nombre, $2 = flags
 median_total() { # $1 = binario, resto = argumentos
     local bin=$1; shift
     local vals=""
+    # una ejecucion de calentamiento que se descarta (cache de disco, frecuencia de la CPU)
+    "$bin" "$@" --save-samples 0 --output-dir "$OUT/tmp" > /dev/null
     for _ in $(seq "$REPS"); do
         local ms
         ms=$("$bin" "$@" --save-samples 0 --output-dir "$OUT/tmp" | awk '/TOTAL/ {print $5}')
@@ -163,5 +168,13 @@ echo "| Configuracion | Tiempo total (s) | Ganancia vs -O0 | Moravec (ms) | Bord
 echo "| --- | --- | --- | --- | --- |"
 tail -n +2 "$OUT/compilacion.csv" | awk -F, '{printf "| %s | %s | %s | %s | %s |\n", $2, $3, $4, $5, $6}'
 echo
+echo "Desglose por rama del caso de referencia sin -O:"
+grep -E "Lectura|Rama|Conversion|Combinacion|TOTAL" "$OUT/logs/run_O0.txt"
+echo
+if [ "$IS_CLANG" = 0 ]; then
+    echo "Bucles vectorizados por linea de pipeline.cpp (-O3 -march=native):"
+    grep -oE "[A-Za-z_.-]+\.(cpp|hpp|h|tcc):[0-9]+" "$OUT/informes/vec_optimizados.txt" | sort | uniq -c
+    echo
+fi
 echo "Pegad todo lo que aparece desde 'Compilador:' hasta aqui para completar los apartados 6 y 7."
 rm -rf "$OUT/tmp"
