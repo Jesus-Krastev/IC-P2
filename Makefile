@@ -8,12 +8,11 @@ IMAGES_DIR := images
 
 # Parametros del caso de prueba de referencia (Tarea 2: documentad estos
 # valores y el tiempo obtenido en la memoria).
-# IMPORTANT: sustituid IMAGES por los nombres reales de vuestros archivos
-# .ppm dentro de la carpeta images/ (separados por coma, sin espacios).
-IMAGES := leon.ppm, original.ppm
-REPEAT := 12
-RESIZE_WIDTH := 768
-RESIZE_HEIGHT := 768
+# IMAGES: nombres de los .ppm de images/, separados por coma y SIN espacios.
+IMAGES := leon.ppm
+REPEAT := 4
+RESIZE_WIDTH := 0
+RESIZE_HEIGHT := 0
 BLUR_KERNEL := 5
 BLUR_SIGMA := 1.2
 EDGE_THRESH := 60
@@ -21,7 +20,7 @@ CORNER_WINDOW := 1
 CORNER_THRESH := 2000
 CORNER_NMS := 6
 
-.PHONY: all run clean
+.PHONY: all run clean experimentos
 
 all: $(BIN)
 
@@ -37,4 +36,8 @@ run: all
 
 clean:
 	rm -f $(BIN)
-	rm -rf $(OUTDIR)
+	rm -rf $(OUTDIR) resultados
+
+# Mediciones de los apartados 2.3-2.5 (varios minutos)
+experimentos:
+	bash experimentos.sh
