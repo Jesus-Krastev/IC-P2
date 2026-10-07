@@ -1,0 +1,4 @@
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:06.75
+	Maximum resident set size (kbytes): 18852
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 7486

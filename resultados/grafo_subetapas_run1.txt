@@ -1,0 +1,17 @@
+N=240 imagenes (768x768), tiempos acumulados en ms
+read_ppm               323.49
+resize_image           502.53
+compute_rgb_stats      451.22
+to_grayscale           158.13
+gaussian_blur          809.70
+sobel_gradient         367.34
+threshold               77.06
+compute_histogram       49.01
+otsu_threshold           0.22
+otsu_binarize           83.25
+moravec (solo SSD, sin NMS)   3129.76
+moravec (completo)            3205.55
+  => NMS por diferencia         75.78
+compose_annotated      368.15
+Image(768,768,1) construir+poner a cero    4.7113 (total 240 veces)
+(sink 46320)

@@ -1,0 +1,15 @@
+image.hpp:20:11: optimized: basic block part vectorized using 8 byte vectors
+pipeline.cpp:121:20: optimized: loop vectorized using 16 byte vectors
+image.hpp:20:11: optimized: basic block part vectorized using 8 byte vectors
+/usr/include/c++/15/bits/stl_vector.h:106:4: optimized: basic block part vectorized using 16 byte vectors
+image.hpp:20:11: optimized: basic block part vectorized using 8 byte vectors
+image.hpp:20:11: optimized: basic block part vectorized using 8 byte vectors
+pipeline.cpp:196:12: optimized: basic block part vectorized using 16 byte vectors
+pipeline.cpp:197:12: optimized: basic block part vectorized using 16 byte vectors
+pipeline.cpp:235:23: optimized: loop vectorized using 16 byte vectors
+image.hpp:20:11: optimized: basic block part vectorized using 8 byte vectors
+image.hpp:20:11: optimized: basic block part vectorized using 8 byte vectors
+/usr/include/c++/15/bits/stl_vector.h:106:4: optimized: basic block part vectorized using 16 byte vectors
+image.hpp:11:8: optimized: basic block part vectorized using 8 byte vectors
+/usr/include/c++/15/bits/stl_vector.h:405:25: optimized: basic block part vectorized using 16 byte vectors
+/usr/include/c++/15/bits/stl_vector.h:106:4: optimized: basic block part vectorized using 16 byte vectors

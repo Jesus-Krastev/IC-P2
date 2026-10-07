@@ -1,0 +1,34 @@
+=== Pipeline de analisis de imagen (secuencial, 4 ramas) ===
+Lote: 240 imagenes (2 archivo(s) x 120 repeticion(es)) desde 'images/'
+Redimensionado a 768x768 (recorte centrado si cambia la proporcion)
+Parametros: blur kernel=5 sigma=1.20 | umbral bordes=60 | Moravec ventana=1 umbral=2000 nms=6
+
+--- Tiempos acumulados por etapa (todas las imagenes) ---
+  Lectura (+ recorte/resize si aplica) :    653.63 ms
+  Rama RGB stats                       :    390.68 ms
+  Conversion a grises (comun)          :    134.43 ms
+  Rama bordes (blur+sobel+umbr.)       :   1082.96 ms
+  Rama histograma + Otsu               :    111.59 ms
+  Rama esquinas (Moravec)              :   2762.86 ms
+  Combinacion final (fan-in)           :    307.75 ms
+  Informe (conteos + checksum + CSV)   :    212.64 ms
+  Escritura de muestras                :      6.99 ms
+---------------------------------------------------------
+  Suma de etapas                       :   5663.54 ms
+  TOTAL (reloj real)                   :   5663.77 ms (5.664 s)
+  Imagenes/segundo                     :     42.37
+
+--- Limite estimado del paralelismo funcional (NO medido) ---
+  Trabajo secuencial (sin escribir muestras) :   5656.55 ms
+  Camino critico del grafo de dependencias   :   4071.32 ms
+  Ganancia maxima con infinitos recursos     :      1.39x (una imagen a la vez, sin paralelismo de datos)
+
+--- Resultado del lote (debe coincidir en cualquier version correcta) ---
+  Pixeles de borde (total)             : 9125640
+  Esquinas detectadas (total)          : 67200
+  Pixeles de primer plano Otsu (total) : 57361080
+  Umbral de Otsu medio                 : 99.00
+  Checksum global                      : 1296a852f704a0a4
+
+Informe por imagen en '/tmp/final_out/resumen.csv' (240 filas)
+Muestras guardadas en '/tmp/final_out/' (2 imagenes x 8 salidas)

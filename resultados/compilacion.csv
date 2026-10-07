@@ -1,0 +1,13 @@
+configuracion,flags,tiempo_s,ganancia_vs_O0,moravec_ms,bordes_ms
+O0,(sin -O),4,189,1,00,2170.74,blur
+915.07
+O1,-O1,0,892,4,70,419.61,blur
+281.14
+O2,-O2,0,718,5,83,384.89,blur
+153.52
+O3,-O3,0,434,9,65,132.64,blur
+134.84
+O3_native,-O3 -march=native,0,417,10,05,130.81,blur
+124.70
+Ofast_native,-Ofast -march=native,0,399,10,50,134.04,blur
+127.10

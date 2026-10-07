@@ -1,0 +1,31 @@
+src/image.hpp:23:11: optimized: basic block part vectorized using 8 byte vectors
+src/pipeline.cpp:232:27: optimized: loop vectorized using 16 byte vectors
+src/pipeline.cpp:228:35: optimized: loop vectorized using 16 byte vectors
+src/pipeline.cpp:228:35: optimized:  loop versioned for vectorization because of possible aliasing
+src/pipeline.cpp:199:20: optimized: loop vectorized using 16 byte vectors
+src/image.hpp:23:11: optimized: basic block part vectorized using 8 byte vectors
+/usr/include/c++/15/bits/stl_vector.h:106:4: optimized: basic block part vectorized using 16 byte vectors
+src/pipeline.cpp:255:27: optimized: loop vectorized using 16 byte vectors
+src/pipeline.cpp:255:27: optimized:  loop versioned for vectorization because of possible aliasing
+src/image.hpp:23:11: optimized: basic block part vectorized using 8 byte vectors
+/usr/include/c++/15/bits/stl_vector.h:106:4: optimized: basic block part vectorized using 16 byte vectors
+src/pipeline.cpp:275:26: optimized: loop vectorized using 16 byte vectors
+src/pipeline.cpp:275:26: optimized:  loop versioned for vectorization because of possible aliasing
+src/pipeline.cpp:275:26: optimized: loop vectorized using 8 byte vectors
+src/image.hpp:23:11: optimized: basic block part vectorized using 8 byte vectors
+src/pipeline.cpp:286:12: optimized: basic block part vectorized using 16 byte vectors
+src/pipeline.cpp:287:12: optimized: basic block part vectorized using 16 byte vectors
+src/pipeline.cpp:282:10: optimized: basic block part vectorized using 16 byte vectors
+src/pipeline.cpp:282:10: optimized: basic block part vectorized using 16 byte vectors
+src/pipeline.cpp:328:23: optimized: loop vectorized using 16 byte vectors
+src/image.hpp:23:11: optimized: basic block part vectorized using 8 byte vectors
+src/pipeline.cpp:407:31: optimized: loop vectorized using 16 byte vectors
+src/pipeline.cpp:401:39: optimized: loop vectorized using 16 byte vectors
+src/pipeline.cpp:401:39: optimized:  loop versioned for vectorization because of possible aliasing
+/usr/include/c++/15/bits/stl_algobase.h:924:22: optimized: loop vectorized using 16 byte vectors
+src/image.hpp:23:11: optimized: basic block part vectorized using 8 byte vectors
+src/image.hpp:23:11: optimized: basic block part vectorized using 8 byte vectors
+/usr/include/c++/15/bits/stl_vector.h:106:4: optimized: basic block part vectorized using 16 byte vectors
+src/image.hpp:14:8: optimized: basic block part vectorized using 8 byte vectors
+/usr/include/c++/15/bits/stl_vector.h:405:25: optimized: basic block part vectorized using 16 byte vectors
+/usr/include/c++/15/bits/stl_vector.h:106:4: optimized: basic block part vectorized using 16 byte vectors

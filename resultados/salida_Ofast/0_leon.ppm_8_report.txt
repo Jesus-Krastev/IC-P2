@@ -1,0 +1,9 @@
+Informe - images/leon.ppm
+Estadisticas RGB:
+  R: media=125.25  desv.tipica=59.18
+  G: media=99.57  desv.tipica=46.73
+  B: media=50.74  desv.tipica=46.49
+Umbral de Otsu (sobre intensidad de gris, primer plano = valor > t): 108
+Pixeles de primer plano segun Otsu: 1812397 (41.74%)
+Pixeles de borde (umbral fijo=60): 173191 (3.99%)
+Esquinas detectadas (Moravec): 485

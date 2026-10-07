@@ -1,0 +1,2 @@
+indice,archivo,ancho,alto,media_R,media_G,media_B,desv_R,desv_G,desv_B,umbral_otsu,px_primer_plano_otsu,px_borde,esquinas,checksum
+0,images/leon.ppm,2560,1696,125.2502,99.5660,50.7446,59.1782,46.7310,46.4861,108,1812397,173191,485,7797e5dcb6592368

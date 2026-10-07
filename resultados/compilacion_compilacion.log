@@ -1,0 +1,15 @@
+== O0: g++ -std=c++17 -Wall -Wextra -O0 -o resultados/bin/pipeline_O0 src/main.cpp src/pipeline.cpp
+== O1: g++ -std=c++17 -Wall -Wextra -O1 -o resultados/bin/pipeline_O1 src/main.cpp src/pipeline.cpp
+== O2: g++ -std=c++17 -Wall -Wextra -O2 -o resultados/bin/pipeline_O2 src/main.cpp src/pipeline.cpp
+== O2_vec: g++ -std=c++17 -Wall -Wextra -O2 -ftree-vectorize -o resultados/bin/pipeline_O2_vec src/main.cpp src/pipeline.cpp
+== O2_novec: g++ -std=c++17 -Wall -Wextra -O2 -fno-tree-vectorize -o resultados/bin/pipeline_O2_novec src/main.cpp src/pipeline.cpp
+== O3: g++ -std=c++17 -Wall -Wextra -O3 -o resultados/bin/pipeline_O3 src/main.cpp src/pipeline.cpp
+== O3_novec: g++ -std=c++17 -Wall -Wextra -O3 -fno-tree-vectorize -o resultados/bin/pipeline_O3_novec src/main.cpp src/pipeline.cpp
+== Os: g++ -std=c++17 -Wall -Wextra -Os -o resultados/bin/pipeline_Os src/main.cpp src/pipeline.cpp
+== O2_native: g++ -std=c++17 -Wall -Wextra -O2 -march=native -o resultados/bin/pipeline_O2_native src/main.cpp src/pipeline.cpp
+== O3_native: g++ -std=c++17 -Wall -Wextra -O3 -march=native -o resultados/bin/pipeline_O3_native src/main.cpp src/pipeline.cpp
+== O3_native_novec: g++ -std=c++17 -Wall -Wextra -O3 -march=native -fno-tree-vectorize -o resultados/bin/pipeline_O3_native_novec src/main.cpp src/pipeline.cpp
+== O3_avx2fma: g++ -std=c++17 -Wall -Wextra -O3 -mavx2 -mfma -o resultados/bin/pipeline_O3_avx2fma src/main.cpp src/pipeline.cpp
+== O3_unroll: g++ -std=c++17 -Wall -Wextra -O3 -funroll-loops -o resultados/bin/pipeline_O3_unroll src/main.cpp src/pipeline.cpp
+== Ofast: g++ -std=c++17 -Wall -Wextra -Ofast -o resultados/bin/pipeline_Ofast src/main.cpp src/pipeline.cpp
+== Ofast_native: g++ -std=c++17 -Wall -Wextra -Ofast -march=native -o resultados/bin/pipeline_Ofast_native src/main.cpp src/pipeline.cpp

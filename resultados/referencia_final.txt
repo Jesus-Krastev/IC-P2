@@ -1,0 +1,7 @@
+ TOTAL (reloj real) : 5860.69 ms (5.861 s)  Checksum global : 1296a852f704a0a4 
+ TOTAL (reloj real) : 5629.84 ms (5.630 s)  Checksum global : 1296a852f704a0a4 
+ TOTAL (reloj real) : 5640.02 ms (5.640 s)  Checksum global : 1296a852f704a0a4 
+ TOTAL (reloj real) : 5635.32 ms (5.635 s)  Checksum global : 1296a852f704a0a4 
+ TOTAL (reloj real) : 5674.46 ms (5.674 s)  Checksum global : 1296a852f704a0a4 
+ TOTAL (reloj real) : 5952.28 ms (5.952 s)  Checksum global : 1296a852f704a0a4 
+ TOTAL (reloj real) : 5828.51 ms (5.829 s)  Checksum global : 1296a852f704a0a4 

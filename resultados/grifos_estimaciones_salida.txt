@@ -1,0 +1,87 @@
+=== PARTE 1: grifos (fracciones exactas) ===
+Caso 1: tiempos [8, 40] h
+  caudales q_i = 1/8, 1/40  (depositos/h)
+  Q = sum q_i = 3/20  ->  T = 1/Q = 20/3 h = 6.6667 h = 6 h 40 min
+  S = T_min/T = 8/(20/3) = 6/5 = 1.2000
+  E = S/n = (6/5)/2 = 3/5 = 0.6000
+Caso 2: tiempos [8, 8] h
+  caudales q_i = 1/8, 1/8  (depositos/h)
+  Q = sum q_i = 1/4  ->  T = 1/Q = 4 h = 4.0000 h = 4 h 0 min
+  S = T_min/T = 8/(4) = 2 = 2.0000
+  E = S/n = (2)/2 = 1 = 1.0000
+Caso 3: tiempos [40, 40] h
+  caudales q_i = 1/40, 1/40  (depositos/h)
+  Q = sum q_i = 1/20  ->  T = 1/Q = 20 h = 20.0000 h = 20 h 0 min
+  S = T_min/T = 40/(20) = 2 = 2.0000
+  E = S/n = (2)/2 = 1 = 1.0000
+Caso 4: tiempos [8, 40, 40] h
+  caudales q_i = 1/8, 1/40, 1/40  (depositos/h)
+  Q = sum q_i = 7/40  ->  T = 1/Q = 40/7 h = 5.7143 h = 5 h 43 min
+  S = T_min/T = 8/(40/7) = 7/5 = 1.4000
+  E = S/n = (7/5)/3 = 7/15 = 0.4667
+
+| Caso | Grifos (h) | Q (dep/h) | T (h) | T | S | E |
+| 1 | 8 + 40 | 3/20 | 20/3 = 6.667 | 6 h 40 min | 1.200 (6/5) | 0.600 (3/5) |
+| 2 | 8 + 8 | 1/4 | 4 = 4.000 | 4 h 0 min | 2.000 (2) | 1.000 (1) |
+| 3 | 40 + 40 | 1/20 | 20 = 20.000 | 20 h 0 min | 2.000 (2) | 1.000 (1) |
+| 4 | 8 + 40 + 40 | 7/40 | 40/7 = 5.714 | 5 h 43 min | 1.400 (7/5) | 0.467 (7/15) |
+
+=== PARTE 2: medicion oficial (un nucleo, -O2, 240 imagenes) ===
+  lectura      653.63 ms   11.5 %    2.723 ms/img
+  rgb          390.68 ms    6.9 %    1.628 ms/img
+  gris         134.43 ms    2.4 %    0.560 ms/img
+  bordes      1082.96 ms   19.1 %    4.512 ms/img
+  histotsu     111.59 ms    2.0 %    0.465 ms/img
+  esquinas    2762.86 ms   48.8 %   11.512 ms/img
+  combinar     307.75 ms    5.4 %    1.282 ms/img
+  informe      212.64 ms    3.8 %    0.886 ms/img
+  muestras       6.99 ms    0.1 %    0.029 ms/img
+  TOTAL       5663.77 ms   (23.60 ms/img, 42.4 img/s)
+  Camino critico 4071.32 ms -> ganancia funcional max 1.39x
+  f1 (informe+muestras)         = 3.88 %
+  f2 (lectura+informe+muestras) = 15.42 %
+  esquinas/(suma sin muestras) = 48.8 %
+
+Amdahl a nivel de lote  S(p)=1/(f+(1-f)/p)   [ESTIMACION]
+  p   | f1: S    E    | f2: S    E    | ideal
+    1 |   1.00  1.00 |   1.00  1.00 | 1
+    2 |   1.93  0.96 |   1.73  0.87 | 2
+    4 |   3.58  0.90 |   2.73  0.68 | 4
+    8 |   6.29  0.79 |   3.85  0.48 | 8
+   16 |   7.41  0.46 |   4.19  0.26 | 16   (p=16 hilos SMT modelado como p_eff=10 nucleos-equivalentes)
+  limite p->inf: f1 -> 25.8x ; f2 -> 6.5x
+
+Gustafson S=p-f(p-1) (lote que crece con p) [ESTIMACION]
+  p=2: f1 -> 1.96  (E=0.981) | f2 -> 1.85  (E=0.923)
+  p=4: f1 -> 3.88  (E=0.971) | f2 -> 3.54  (E=0.884)
+  p=8: f1 -> 7.73  (E=0.966) | f2 -> 6.92  (E=0.865)
+
+Pipeline con UNA hebra lectora: S <= T_img/t_lectura = 23.60/2.723 = 8.67x
+Pipeline con UNA hebra de informe: S <= 25.79x
+Solo paralelismo funcional (una imagen): S_max = 1.39x -> E con 4 hebras = 0.35
+
+GPU [ESTIMACION]: transferencias por imagen
+  H2D 1.77 MB, D2H 3.54 MB, a 12 GB/s efectivos -> 0.442 ms/img (vs 23.6 ms/img CPU 1 hebra)
+  S_GPU = 1/(f+(1-f)/g) con f = fraccion no acelerada (lectura+informe+muestras en CPU serie: f2; con lectura en varias hebras: f1)
+   g=        10: f1 ->   7.41   f2 ->   4.19
+   g=        20: f1 ->  11.52   f2 ->   5.09
+   g=        50: f1 ->  17.24   f2 ->   5.84
+   g=     1e+09: f1 ->  25.79   f2 ->   6.49
+
+Cluster MPI [ESTIMACION]: nodos de 8 nucleos, T(n)=T1*(f1+(1-f1)/(8n)) + t_fijo
+   n= 1 nodos (  8 nucleos): T= 0.90 s  S= 6.29  E(por nucleo)=0.79
+   n= 2 nodos ( 16 nucleos): T= 0.81 s  S= 6.99  E(por nucleo)=0.44
+   n= 4 nodos ( 32 nucleos): T= 0.64 s  S= 8.85  E(por nucleo)=0.28
+   n= 8 nodos ( 64 nucleos): T= 0.55 s  S=10.21  E(por nucleo)=0.16
+   n=16 nodos (128 nucleos): T= 0.51 s  S=11.06  E(por nucleo)=0.09
+   Volumen de lectura del lote: 1.78 GB; con T=1.0 s haria falta 1.78 GB/s de E/S agregada
+
+CPU+GPU como grifos (Tarea 3) [ESTIMACION]: q_GPU = r * q_CPU
+   r= 1: Q=2 ; S vs mejor = 2.000 ; E = 1.000
+   r= 3: Q=4 ; S vs mejor = 1.333 ; E = 0.667
+   r=10: Q=11 ; S vs mejor = 1.100 ; E = 0.550
+
+Memoria [ESTIMACION]: footprint por imagen 768x768
+   ~11.2 MB (aprox., contando los buffers principales); x8 hebras = 90 MB vs L3 16 MiB
+   Cota: cada buffer recorrido <=4 veces -> 45 MB/img; a 267 img/s = 12.0 GB/s (DDR4/5 de portatil: decenas de GB/s teoricos)
+Graficas escritas en graficas/
