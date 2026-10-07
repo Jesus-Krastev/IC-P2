@@ -4,23 +4,23 @@ Resolucion nativa de cada archivo (sin redimensionar)
 Parametros: blur kernel=5 sigma=1.20 | umbral bordes=60 | Moravec ventana=1 umbral=2000 nms=6
 
 --- Tiempos acumulados por etapa (todas las imagenes) ---
-  Lectura (+ recorte/resize si aplica) :     19.36 ms
-  Rama RGB stats                       :    473.86 ms
-  Conversion a grises (comun)          :     47.52 ms
-  Rama bordes (blur+sobel+umbr.)       :    915.07 ms
-  Rama histograma + Otsu               :    172.28 ms
-  Rama esquinas (Moravec)              :   2170.74 ms
-  Combinacion final (fan-in)           :    256.81 ms
-  Informe (conteos + checksum + CSV)   :    115.56 ms
+  Lectura (+ recorte/resize si aplica) :     18.74 ms
+  Rama RGB stats                       :    479.77 ms
+  Conversion a grises (comun)          :     47.91 ms
+  Rama bordes (blur+sobel+umbr.)       :    929.02 ms
+  Rama histograma + Otsu               :    173.00 ms
+  Rama esquinas (Moravec)              :   2174.80 ms
+  Combinacion final (fan-in)           :    258.94 ms
+  Informe (conteos + checksum + CSV)   :    114.32 ms
   Escritura de muestras                :      0.00 ms
 ---------------------------------------------------------
-  Suma de etapas                       :   4171.19 ms
-  TOTAL (reloj real)                   :   4182.63 ms (4.183 s)
-  Imagenes/segundo                     :      0.96
+  Suma de etapas                       :   4196.51 ms
+  TOTAL (reloj real)                   :   4211.39 ms (4.211 s)
+  Imagenes/segundo                     :      0.95
 
 --- Limite estimado del paralelismo funcional (NO medido) ---
-  Trabajo secuencial (sin escribir muestras) :   4171.19 ms
-  Camino critico del grafo de dependencias   :   2609.98 ms
+  Trabajo secuencial (sin escribir muestras) :   4196.51 ms
+  Camino critico del grafo de dependencias   :   2614.71 ms
   Ganancia maxima con infinitos recursos     :      1.60x (una imagen a la vez, sin paralelismo de datos)
 
 --- Resultado del lote (debe coincidir en cualquier version correcta) ---

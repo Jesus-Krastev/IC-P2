@@ -4,24 +4,24 @@ Resolucion nativa de cada archivo (sin redimensionar)
 Parametros: blur kernel=5 sigma=1.20 | umbral bordes=60 | Moravec ventana=1 umbral=2000 nms=6
 
 --- Tiempos acumulados por etapa (todas las imagenes) ---
-  Lectura (+ recorte/resize si aplica) :     19.87 ms
-  Rama RGB stats                       :     17.44 ms
-  Conversion a grises (comun)          :     13.85 ms
-  Rama bordes (blur+sobel+umbr.)       :    127.10 ms
-  Rama histograma + Otsu               :     14.76 ms
-  Rama esquinas (Moravec)              :    134.04 ms
-  Combinacion final (fan-in)           :     40.50 ms
-  Informe (conteos + checksum + CSV)   :     28.30 ms
+  Lectura (+ recorte/resize si aplica) :     17.71 ms
+  Rama RGB stats                       :     17.30 ms
+  Conversion a grises (comun)          :     13.20 ms
+  Rama bordes (blur+sobel+umbr.)       :    122.26 ms
+  Rama histograma + Otsu               :     13.98 ms
+  Rama esquinas (Moravec)              :    125.17 ms
+  Combinacion final (fan-in)           :     38.52 ms
+  Informe (conteos + checksum + CSV)   :     27.20 ms
   Escritura de muestras                :      0.00 ms
 ---------------------------------------------------------
-  Suma de etapas                       :    395.85 ms
-  TOTAL (reloj real)                   :    407.64 ms (0.408 s)
-  Imagenes/segundo                     :      9.81
+  Suma de etapas                       :    375.34 ms
+  TOTAL (reloj real)                   :    387.95 ms (0.388 s)
+  Imagenes/segundo                     :     10.31
 
 --- Limite estimado del paralelismo funcional (NO medido) ---
-  Trabajo secuencial (sin escribir muestras) :    395.85 ms
-  Camino critico del grafo de dependencias   :    237.00 ms
-  Ganancia maxima con infinitos recursos     :      1.67x (una imagen a la vez, sin paralelismo de datos)
+  Trabajo secuencial (sin escribir muestras) :    375.34 ms
+  Camino critico del grafo de dependencias   :    223.76 ms
+  Ganancia maxima con infinitos recursos     :      1.68x (una imagen a la vez, sin paralelismo de datos)
 
 --- Resultado del lote (debe coincidir en cualquier version correcta) ---
   Pixeles de borde (total)             : 692764

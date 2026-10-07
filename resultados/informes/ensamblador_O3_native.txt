@@ -1,8 +1,8 @@
 
-resultados/bin/O3_native:     formato del fichero elf64-x86-64
+resultados/bin/O3_native:     file format elf64-x86-64
 
 
-Desensamblado de la sección .init:
+Disassembly of section .init:
 
 0000000000002000 <_init>:
     2000:	endbr64
@@ -14,7 +14,7 @@ Desensamblado de la sección .init:
     2016:	add    $0x8,%rsp
     201a:	ret
 
-Desensamblado de la sección .plt:
+Disassembly of section .plt:
 
 0000000000002020 <.plt>:
     2020:	push   0x15da2(%rip)        # 17dc8 <_GLOBAL_OFFSET_TABLE_+0x8>
@@ -261,14 +261,14 @@ Desensamblado de la sección .plt:
     23e9:	jmp    2020 <_init+0x20>
     23ee:	xchg   %ax,%ax
 
-Desensamblado de la sección .plt.got:
+Disassembly of section .plt.got:
 
 00000000000023f0 <__cxa_finalize@plt>:
     23f0:	endbr64
     23f4:	jmp    *0x15bbe(%rip)        # 17fb8 <__cxa_finalize@GLIBC_2.2.5>
     23fa:	nopw   0x0(%rax,%rax,1)
 
-Desensamblado de la sección .plt.sec:
+Disassembly of section .plt.sec:
 
 0000000000002400 <__printf_chk@plt>:
     2400:	endbr64
@@ -570,7 +570,7 @@ Desensamblado de la sección .plt.sec:
     27b4:	jmp    *0x157f6(%rip)        # 17fb0 <_ZNSt6localeC1Ev@GLIBCXX_3.4>
     27ba:	nopw   0x0(%rax,%rax,1)
 
-Desensamblado de la sección .text:
+Disassembly of section .text:
 
 00000000000027c0 <_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_.isra.0>:
     27c0:	push   %r14
@@ -14313,7 +14313,7 @@ Desensamblado de la sección .text:
    12481:	lea    0xb7c(%rip),%rdi        # 13004 <_IO_stdin_used+0x4>
    12488:	call   24e0 <_ZSt20__throw_length_errorPKc@plt>
 
-Desensamblado de la sección .fini:
+Disassembly of section .fini:
 
 0000000000012490 <_fini>:
    12490:	endbr64

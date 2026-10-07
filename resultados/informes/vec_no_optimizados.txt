@@ -754,3 +754,759 @@ src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception:
 src/pipeline.cpp:59:84: missed: statement clobbers memory: __cxa_free_exception (_194);
 src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 3
 src/pipeline.cpp:15:56: missed: statement clobbers memory: fclose (_46);
+/usr/include/c++/15/bits/char_traits.h:393:25: missed: statement clobbers memory: _5 = __builtin_strlen (__lhs_4(D));
+/usr/include/c++/15/bits/basic_string.h:3822:20: missed: not vectorized: statement can throw an exception: std::__cxx11::basic_string<char>::reserve (_1(D), _13);
+/usr/include/c++/15/bits/basic_string.h:3823:19: missed: not vectorized: statement can throw an exception: std::__cxx11::basic_string<char>::append (_1(D), __lhs_4(D), _5);
+/usr/include/c++/15/bits/basic_string.h:3824:19: missed: not vectorized: statement can throw an exception: std::__cxx11::basic_string<char>::append (_1(D), ISRA.500_7(D), ISRA.501_6(D));
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (_1(D));
+/usr/include/c++/15/bits/basic_string.h:1281:31: missed: couldn't vectorize loop
+/usr/include/c++/15/bits/basic_string.h:1281:31: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/pipeline.cpp:32:9: missed: couldn't vectorize loop
+src/pipeline.cpp:32:9: missed: not vectorized: could not determine main exit from loop with multiple exits.
+src/pipeline.cpp:31:42: missed: couldn't vectorize loop
+src/pipeline.cpp:31:42: missed: not vectorized: number of iterations cannot be computed.
+src/pipeline.cpp:26:20: missed: splitting region at control altering definition _22 = fgetc (f_16(D));
+src/pipeline.cpp:29:23: missed: statement clobbers memory: _18 = fgetc (f_16(D));
+src/pipeline.cpp:32:26: missed: statement clobbers memory: _4 = isspace (_18);
+src/pipeline.cpp:31:69: missed: statement clobbers memory: _25 = fgetc (f_16(D));
+src/pipeline.cpp:37:23: missed: not vectorized: statement can throw an exception: _22 = fgetc (f_16(D));
+src/pipeline.cpp:31:42: missed: splitting region at loop 2 exit at bb37
+src/pipeline.cpp:38:37: missed: statement clobbers memory: _7 = isspace (_22);
+/usr/include/c++/15/bits/basic_string.h:1728:19: missed: not vectorized: statement can throw an exception: std::__cxx11::basic_string<char>::_M_mutate (tok_19(D), __sz_49, 0, 0B, 1);
+/usr/include/c++/15/bits/char_traits.h:352:7: missed: splitting region at dominance boundary bb21
+/usr/include/c++/15/bits/char_traits.h:352:7: missed: splitting region at dominance boundary bb35
+/usr/include/c++/15/bits/char_traits.h:352:7: missed: splitting region at dominance boundary bb34
+/usr/include/c++/15/bits/char_traits.h:352:7: missed: splitting region at dominance boundary bb15
+/usr/include/c++/15/bits/char_traits.h:352:7: missed: splitting region at dominance boundary bb33
+/usr/include/c++/15/bits/basic_string.h:1167:26: missed: splitting region at dominance boundary bb32
+/usr/include/c++/15/bits/basic_string.h:1167:26: missed: splitting region at dominance boundary bb24
+/usr/include/c++/15/bits/basic_string.h:1167:26: missed: splitting region at dominance boundary bb26
+src/pipeline.cpp:41:12: missed: splitting region at dominance boundary bb27
+src/pipeline.cpp:41:12: missed: splitting region at dominance boundary bb5
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (tok_19(D));
+src/pipeline.cpp:30:95: missed: statement clobbers memory: _28 = __cxa_allocate_exception (16);
+src/pipeline.cpp:30:95: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_28, "PNM: fin de archivo inesperado en la cabecera");
+src/pipeline.cpp:30:95: missed: statement clobbers memory: __cxa_throw (_28, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:30:95: missed: statement clobbers memory: __cxa_free_exception (_28);
+src/pipeline.cpp:174:25: missed: couldn't vectorize loop
+src/pipeline.cpp:174:25: missed: not vectorized: number of iterations cannot be computed.
+src/pipeline.cpp:174:25: missed: couldn't vectorize loop
+src/pipeline.cpp:174:25: missed: not vectorized: number of iterations cannot be computed.
+src/pipeline.cpp:174:25: missed: couldn't vectorize loop
+src/pipeline.cpp:174:25: missed: not vectorized: unsupported control flow in loop.
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: statement clobbers memory: _79 = operator new (_52);
+/usr/include/c++/15/bits/stl_uninitialized.h:553:25: missed: statement clobbers memory: __builtin_memset (_79, 0, _52);
+/usr/include/c++/15/bits/stl_algobase.h:951:18: missed: statement clobbers memory: __builtin_memset (d_33, _48, __len_47);
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: missed: statement clobbers memory: __builtin_memcpy (_15, s_31, _11);
+/usr/include/c++/15/bits/stl_algobase.h:951:18: missed: statement clobbers memory: __builtin_memset (_19, _28, _64);
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: missed: statement clobbers memory: __builtin_memcpy (_103, s_120, _11);
+/usr/include/c++/15/bits/stl_algobase.h:951:18: missed: statement clobbers memory: __builtin_memset (_99, _98, _64);
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: missed: statement clobbers memory: __builtin_memcpy (_109, s_76, _11);
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: statement clobbers memory: std::__throw_length_error ("cannot create std::vector larger than max_size()");
+src/pipeline.cpp:170:98: missed: statement clobbers memory: _36 = __cxa_allocate_exception (16);
+src/pipeline.cpp:170:98: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_36, "pad_replicate: imagen vacia");
+src/pipeline.cpp:170:98: missed: statement clobbers memory: __cxa_throw (_36, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:170:98: missed: statement clobbers memory: __cxa_free_exception (_36);
+src/pipeline.cpp:169:97: missed: statement clobbers memory: _41 = __cxa_allocate_exception (16);
+src/pipeline.cpp:169:97: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_41, "pad_replicate espera una imagen de 1 canal");
+src/pipeline.cpp:169:97: missed: statement clobbers memory: __cxa_throw (_41, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:169:97: missed: statement clobbers memory: __cxa_free_exception (_41);
+src/image.hpp:23:11: missed: not vectorized: vectorization is not profitable.
+src/image.hpp:23:11: missed: not vectorized: vectorization is not profitable.
+src/image.hpp:23:11: missed: not vectorized: vectorization is not profitable.
+src/image.hpp:23:11: missed: not vectorized: vectorization is not profitable.
+/usr/include/c++/15/bits/char_traits.h:393:25: missed: statement clobbers memory: _3 = __builtin_strlen (__rhs_2(D));
+/usr/include/c++/15/bits/basic_string.h:3822:20: missed: not vectorized: statement can throw an exception: std::__cxx11::basic_string<char>::reserve (_1(D), _13);
+/usr/include/c++/15/bits/basic_string.h:3823:19: missed: not vectorized: statement can throw an exception: std::__cxx11::basic_string<char>::append (_1(D), ISRA.530_8(D), ISRA.531_7(D));
+/usr/include/c++/15/bits/basic_string.h:3824:19: missed: not vectorized: statement can throw an exception: std::__cxx11::basic_string<char>::append (_1(D), __rhs_2(D), _3);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (_1(D));
+src/pipeline.cpp:46:12: missed: splitting region at control altering definition D.66906 = std::operator+.isra (_76, _77, ": cabecera PNM invalida ("); [return slot optimization]
+/usr/include/c++/15/ext/string_conversions.h:84:34: missed: statement clobbers memory: _80 = strtol (_12, &__endptr, 10);
+src/pipeline.cpp:50:68: missed: statement clobbers memory: _15 = __cxa_allocate_exception (16);
+src/pipeline.cpp:50:68: missed: not vectorized: statement can throw an exception: std::invalid_argument::invalid_argument (_15, "basura");
+src/pipeline.cpp:50:68: missed: not vectorized: statement can throw an exception: __cxa_throw (_15, &_ZTISt16invalid_argument, __dt_comp );
+src/pipeline.cpp:50:68: missed: statement clobbers memory: __cxa_free_exception (_15);
+src/pipeline.cpp:46:12: missed: not vectorized: statement can throw an exception: resx 3
+/usr/include/c++/15/ext/string_conversions.h:90:27: missed: not vectorized: statement can throw an exception: std::__throw_out_of_range ("stoi");
+/usr/include/c++/15/ext/string_conversions.h:87:31: missed: not vectorized: statement can throw an exception: std::__throw_invalid_argument ("stoi");
+src/pipeline.cpp:46:12: missed: not vectorized: statement can throw an exception: resx 50
+src/pipeline.cpp:52:7: missed: statement clobbers memory: _19 = __builtin_eh_filter (1);
+src/pipeline.cpp:52:34: missed: statement clobbers memory: _2 = __builtin_eh_pointer (1);
+src/pipeline.cpp:52:34: missed: statement clobbers memory: __cxa_begin_catch (_2);
+src/pipeline.cpp:53:98: missed: statement clobbers memory: _23 = __cxa_allocate_exception (16);
+src/pipeline.cpp:53:41: missed: not vectorized: statement can throw an exception: D.66906 = std::operator+.isra (_76, _77, ": cabecera PNM invalida ("); [return slot optimization]
+src/pipeline.cpp:53:41: missed: splitting region at control altering definition _44 = std::__cxx11::basic_string<char>::append (&D.66906, field_26(D));
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: not vectorized: statement can throw an exception: _44 = std::__cxx11::basic_string<char>::append (&D.66906, field_26(D));
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb27
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at control altering definition _45 = std::__cxx11::basic_string<char>::append (&D.66910, " = \'");
+/usr/include/c++/15/bits/basic_string.h:3975:43: missed: statement clobbers memory: std::__cxx11::basic_string<char>::basic_string (&D.66910, _44);
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: not vectorized: statement can throw an exception: _45 = std::__cxx11::basic_string<char>::append (&D.66910, " = \'");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb28
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at control altering definition _92 = std::__cxx11::basic_string<char>::append (&D.66911, _74, _75);
+/usr/include/c++/15/bits/basic_string.h:3975:43: missed: statement clobbers memory: std::__cxx11::basic_string<char>::basic_string (&D.66911, _45);
+/usr/include/c++/15/bits/basic_string.h:1536:28: missed: not vectorized: statement can throw an exception: _92 = std::__cxx11::basic_string<char>::append (&D.66911, _74, _75);
+/usr/include/c++/15/bits/basic_string.h:1536:28: missed: splitting region at dominance boundary bb30
+/usr/include/c++/15/bits/basic_string.h:1536:28: missed: splitting region at control altering definition _46 = std::__cxx11::basic_string<char>::append (&D.66918, "\')");
+/usr/include/c++/15/bits/basic_string.h:3924:43: missed: statement clobbers memory: std::__cxx11::basic_string<char>::basic_string (&D.66918, _92);
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: not vectorized: statement can throw an exception: _46 = std::__cxx11::basic_string<char>::append (&D.66918, "\')");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb31
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb36
+/usr/include/c++/15/bits/basic_string.h:3975:43: missed: statement clobbers memory: std::__cxx11::basic_string<char>::basic_string (&D.66919, _46);
+src/pipeline.cpp:53:98: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_23, &D.66919);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.66919);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.66918);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.66911);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.66910);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.66906);
+src/pipeline.cpp:53:98: missed: not vectorized: statement can throw an exception: __cxa_throw (_23, &_ZTISt13runtime_error, __dt_comp );
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.66919);
+src/pipeline.cpp:46:12: missed: not vectorized: statement can throw an exception: resx 17
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb39
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.66918);
+src/pipeline.cpp:46:12: missed: not vectorized: statement can throw an exception: resx 16
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb42
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.66911);
+src/pipeline.cpp:46:12: missed: not vectorized: statement can throw an exception: resx 15
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb45
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.66910);
+src/pipeline.cpp:46:12: missed: not vectorized: statement can throw an exception: resx 14
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb14
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.66906);
+src/pipeline.cpp:46:12: missed: not vectorized: statement can throw an exception: resx 13
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb47
+/usr/include/c++/15/bits/basic_string.h:1167:26: missed: splitting region at dominance boundary bb48
+/usr/include/c++/15/bits/basic_string.h:1167:26: missed: splitting region at dominance boundary bb51
+src/pipeline.cpp:53:98: missed: statement clobbers memory: __cxa_free_exception (_23);
+src/pipeline.cpp:46:12: missed: not vectorized: statement can throw an exception: resx 7
+src/pipeline.cpp:54:5: missed: statement clobbers memory: __cxa_end_catch ();
+/usr/include/c++/15/bits/charconv.h:96:20: missed: couldn't vectorize loop
+/usr/include/c++/15/bits/charconv.h:96:20: missed: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/15/bits/charconv.h:69:4: missed: couldn't vectorize loop
+/usr/include/c++/15/bits/charconv.h:69:4: missed: not vectorized: could not determine main exit from loop with multiple exits.
+/usr/include/c++/15/bits/basic_string.tcc:621:14: missed: statement clobbers memory: std::__cxx11::basic_string<char>::reserve (__str_12(D), _4);
+/usr/include/c++/15/bits/basic_string.tcc:621:14: missed: statement clobbers memory: std::__cxx11::basic_string<char>::reserve (__str_12(D), _73);
+/usr/include/c++/15/bits/charconv.h:96:20: missed: couldn't vectorize loop
+/usr/include/c++/15/bits/charconv.h:96:20: missed: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/15/bits/charconv.h:69:4: missed: couldn't vectorize loop
+/usr/include/c++/15/bits/charconv.h:69:4: missed: not vectorized: could not determine main exit from loop with multiple exits.
+/usr/include/c++/15/bits/basic_string.tcc:621:14: missed: not vectorized: statement can throw an exception: std::__cxx11::basic_string<char>::reserve (__str_12(D), _4);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (__str_12(D));
+/usr/include/c++/15/bits/charconv.h:96:20: missed: couldn't vectorize loop
+/usr/include/c++/15/bits/charconv.h:96:20: missed: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/15/bits/charconv.h:69:4: missed: couldn't vectorize loop
+/usr/include/c++/15/bits/charconv.h:69:4: missed: not vectorized: could not determine main exit from loop with multiple exits.
+/usr/include/c++/15/bits/basic_string.tcc:621:14: missed: not vectorized: statement can throw an exception: std::__cxx11::basic_string<char>::reserve (__str_5(D), prephitmp_77);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (__str_5(D));
+src/pipeline.cpp:124:23: missed: couldn't vectorize loop
+src/pipeline.cpp:124:23: missed: not vectorized: latch block not empty.
+src/pipeline.cpp:126:27: missed: couldn't vectorize loop
+src/pipeline.cpp:126:27: missed: not vectorized: latch block not empty.
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: statement clobbers memory: _115 = operator new (_71);
+/usr/include/c++/15/bits/stl_uninitialized.h:553:25: missed: statement clobbers memory: __builtin_memset (_115, 0, _71);
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: missed: statement clobbers memory: __builtin_memcpy (_75, _86, ch_50);
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: statement clobbers memory: std::__throw_length_error ("cannot create std::vector larger than max_size()");
+src/pipeline.cpp:108:107: missed: statement clobbers memory: _61 = __cxa_allocate_exception (16);
+src/pipeline.cpp:108:107: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_61, "resize_image: imagen de origen vacia");
+src/pipeline.cpp:108:107: missed: statement clobbers memory: __cxa_throw (_61, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:108:107: missed: statement clobbers memory: __cxa_free_exception (_61);
+src/pipeline.cpp:107:106: missed: statement clobbers memory: _66 = __cxa_allocate_exception (16);
+src/pipeline.cpp:107:106: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_66, "resize_image: dimensiones invalidas");
+src/pipeline.cpp:107:106: missed: statement clobbers memory: __cxa_throw (_66, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:107:106: missed: statement clobbers memory: __cxa_free_exception (_66);
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: statement clobbers memory: _66 = operator new (_47);
+/usr/include/c++/15/bits/stl_uninitialized.h:553:25: missed: statement clobbers memory: __builtin_memset (_66, 0, _47);
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: statement clobbers memory: std::__throw_length_error ("cannot create std::vector larger than max_size()");
+src/pipeline.cpp:138:98: missed: statement clobbers memory: _40 = __cxa_allocate_exception (16);
+src/pipeline.cpp:138:98: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_40, "to_grayscale espera una imagen de 3 canales");
+src/pipeline.cpp:138:98: missed: statement clobbers memory: __cxa_throw (_40, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:138:98: missed: statement clobbers memory: __cxa_free_exception (_40);
+src/pipeline.cpp:217:23: missed: couldn't vectorize loop
+src/pipeline.cpp:217:23: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+src/pipeline.cpp:223:29: missed: couldn't vectorize loop
+src/pipeline.cpp:223:29: missed: not vectorized: multiple nested loops.
+src/pipeline.cpp:225:33: missed: couldn't vectorize loop
+src/pipeline.cpp:228:50: missed: not vectorized: complicated access pattern.
+src/pipeline.cpp:192:29: missed: couldn't vectorize loop
+src/pipeline.cpp:194:32: missed: statement clobbers memory: v_163 = exp (_162);
+src/pipeline.cpp:193:33: missed: couldn't vectorize loop
+src/pipeline.cpp:194:32: missed: statement clobbers memory: v_163 = exp (_162);
+src/pipeline.cpp:203:7: missed: splitting region at control altering definition padded = pad_replicate (gray_43(D), half_48); [return slot optimization]
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: statement clobbers memory: _197 = operator new (_196);
+/usr/include/c++/15/bits/stl_algobase.h:925:11: missed: statement clobbers memory: __builtin_memset (__first_198, 0, _312);
+src/pipeline.cpp:194:32: missed: statement clobbers memory: v_163 = exp (_162);
+src/pipeline.cpp:211:50: missed: not vectorized: statement can throw an exception: padded = pad_replicate (gray_43(D), half_48); [return slot optimization]
+src/pipeline.cpp:195:71: missed: splitting region at control altering definition _216 = operator new (_87);
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: not vectorized: statement can throw an exception: _216 = operator new (_87);
+/usr/include/c++/15/bits/stl_vector.h:106:4: missed: splitting region at dominance boundary bb28
+/usr/include/c++/15/bits/stl_vector.h:106:4: missed: splitting region at dominance boundary bb30
+/usr/include/c++/15/bits/stl_uninitialized.h:553:25: missed: statement clobbers memory: __builtin_memset (_216, 0, _87);
+/usr/include/c++/15/bits/stl_uninitialized.h:553:25: missed: splitting region at control altering definition _232 = operator new (_231);
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: not vectorized: statement can throw an exception: _232 = operator new (_231);
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: splitting region at dominance boundary bb35
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: splitting region at dominance boundary bb40
+/usr/include/c++/15/bits/stl_algobase.h:925:11: missed: statement clobbers memory: __builtin_memset (__first_233, 0, _308);
+src/pipeline.cpp:217:23: missed: splitting region at dominance boundary bb53
+/usr/include/c++/15/bits/stl_algobase.h:925:11: missed: statement clobbers memory: __builtin_memset (_243, 0, _316);
+src/pipeline.cpp:203:7: missed: splitting region at dominance boundary bb54
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_237, _64);
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: splitting region at dominance boundary bb31
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (pretmp_345, _102);
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_197, _196);
+src/pipeline.cpp:234:12: missed: splitting region at dominance boundary bb61
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: not vectorized: statement can throw an exception: std::__throw_length_error ("cannot create std::vector larger than max_size()");
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: splitting region at dominance boundary bb24
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_107, _109);
+src/pipeline.cpp:203:7: missed: not vectorized: statement can throw an exception: resx 10
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: splitting region at dominance boundary bb66
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: not vectorized: statement can throw an exception: std::__throw_length_error ("cannot create std::vector larger than max_size()");
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: splitting region at dominance boundary bb70
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_111, _113);
+src/pipeline.cpp:203:7: missed: not vectorized: statement can throw an exception: resx 9
+src/image.hpp:14:8: missed: splitting region at dominance boundary bb71
+src/image.hpp:14:8: missed: splitting region at dominance boundary bb13
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_197, _196);
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: splitting region at dominance boundary bb10
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: statement clobbers memory: std::__throw_length_error ("cannot create std::vector larger than max_size()");
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: splitting region at dominance boundary bb7
+src/pipeline.cpp:206:70: missed: statement clobbers memory: _72 = __cxa_allocate_exception (16);
+src/pipeline.cpp:206:70: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_72, "sigma debe ser > 0");
+src/pipeline.cpp:206:70: missed: statement clobbers memory: __cxa_throw (_72, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:206:70: missed: statement clobbers memory: __cxa_free_exception (_72);
+src/pipeline.cpp:206:70: missed: splitting region at dominance boundary bb3
+src/pipeline.cpp:205:110: missed: statement clobbers memory: _77 = __cxa_allocate_exception (16);
+src/pipeline.cpp:205:110: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_77, "kernel_size debe ser impar y >= 1");
+src/pipeline.cpp:205:110: missed: statement clobbers memory: __cxa_throw (_77, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:205:110: missed: statement clobbers memory: __cxa_free_exception (_77);
+src/pipeline.cpp:204:98: missed: statement clobbers memory: _82 = __cxa_allocate_exception (16);
+src/pipeline.cpp:204:98: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_82, "gaussian_blur espera una imagen de 1 canal");
+src/pipeline.cpp:204:98: missed: statement clobbers memory: __cxa_throw (_82, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:204:98: missed: statement clobbers memory: __cxa_free_exception (_82);
+src/pipeline.cpp:249:23: missed: couldn't vectorize loop
+src/pipeline.cpp:249:23: missed: not vectorized: latch block not empty.
+src/pipeline.cpp:241:7: missed: splitting region at control altering definition _119 = operator new (_83);
+src/pipeline.cpp:245:50: missed: statement clobbers memory: padded = pad_replicate (blurred_58(D), 1); [return slot optimization]
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: not vectorized: statement can throw an exception: _119 = operator new (_83);
+/usr/include/c++/15/bits/stl_vector.h:106:4: missed: splitting region at dominance boundary bb11
+/usr/include/c++/15/bits/stl_vector.h:106:4: missed: splitting region at dominance boundary bb12
+/usr/include/c++/15/bits/stl_uninitialized.h:553:25: missed: statement clobbers memory: __builtin_memset (_119, 0, _83);
+/usr/include/c++/15/bits/stl_uninitialized.h:553:25: missed: splitting region at dominance boundary bb6
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (pretmp_274, _89);
+src/pipeline.cpp:241:7: missed: splitting region at dominance boundary bb22
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: not vectorized: statement can throw an exception: std::__throw_length_error ("cannot create std::vector larger than max_size()");
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: splitting region at dominance boundary bb3
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_91, _93);
+src/pipeline.cpp:242:102: missed: statement clobbers memory: _78 = __cxa_allocate_exception (16);
+src/pipeline.cpp:242:102: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_78, "sobel_gradient espera una imagen de 1 canal");
+src/pipeline.cpp:242:102: missed: statement clobbers memory: __cxa_throw (_78, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:242:102: missed: statement clobbers memory: __cxa_free_exception (_78);
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: statement clobbers memory: _48 = operator new (_29);
+/usr/include/c++/15/bits/stl_uninitialized.h:553:25: missed: statement clobbers memory: __builtin_memset (_48, 0, _29);
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: statement clobbers memory: std::__throw_length_error ("cannot create std::vector larger than max_size()");
+src/pipeline.cpp:270:98: missed: statement clobbers memory: _19 = __cxa_allocate_exception (16);
+src/pipeline.cpp:270:98: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_19, "threshold espera una imagen de 1 canal");
+src/pipeline.cpp:270:98: missed: statement clobbers memory: __cxa_throw (_19, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:270:98: missed: statement clobbers memory: __cxa_free_exception (_19);
+src/pipeline.cpp:298:23: missed: couldn't vectorize loop
+src/pipeline.cpp:298:23: missed: not vectorized: unsupported control flow in loop.
+src/pipeline.cpp:289:23: missed: couldn't vectorize loop
+src/pipeline.cpp:289:23: missed: not vectorized: unsupported control flow in loop.
+src/pipeline.cpp:303:36: missed: statement clobbers memory: _120 = sqrt (_101);
+src/pipeline.cpp:303:36: missed: statement clobbers memory: _184 = sqrt (_189);
+src/pipeline.cpp:303:36: missed: statement clobbers memory: _112 = sqrt (_15);
+src/pipeline.cpp:283:89: missed: statement clobbers memory: _53 = __cxa_allocate_exception (16);
+src/pipeline.cpp:283:89: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_53, "compute_rgb_stats espera 3 canales");
+src/pipeline.cpp:283:89: missed: statement clobbers memory: __cxa_throw (_53, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:283:89: missed: statement clobbers memory: __cxa_free_exception (_53);
+src/pipeline.cpp:318:23: missed: couldn't vectorize loop
+src/image.hpp:33:82: missed: failed: evolution of base is not affine.
+src/pipeline.cpp:319:27: missed: couldn't vectorize loop
+src/pipeline.cpp:320:35: missed: possible alias involving gather/scatter between MEM <struct Histogram> [(value_type &)&<retval>]._M_elems[_2] and MEM <struct Histogram> [(value_type &)&<retval>]._M_elems[_2]
+/usr/include/c++/15/bits/stl_algobase.h:925:11: missed: statement clobbers memory: __builtin_memset (&<retval>._M_elems, 0, 1024);
+src/pipeline.cpp:312:88: missed: statement clobbers memory: _18 = __cxa_allocate_exception (16);
+src/pipeline.cpp:312:88: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_18, "compute_histogram espera 1 canal");
+src/pipeline.cpp:312:88: missed: statement clobbers memory: __cxa_throw (_18, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:312:88: missed: statement clobbers memory: __cxa_free_exception (_18);
+src/pipeline.cpp:335:23: missed: couldn't vectorize loop
+src/pipeline.cpp:335:23: missed: not vectorized: unsupported control flow in loop.
+src/pipeline.cpp:359:60: missed: statement clobbers memory: *_8(D) = threshold (gray_9(D), _4); [return slot optimization]
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: statement clobbers memory: _33 = operator new (_14);
+/usr/include/c++/15/bits/stl_uninitialized.h:553:25: missed: statement clobbers memory: __builtin_memset (_33, 0, _14);
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: statement clobbers memory: std::__throw_length_error ("cannot create std::vector larger than max_size()");
+src/pipeline.cpp:415:23: missed: couldn't vectorize loop
+src/pipeline.cpp:415:23: missed: not vectorized: unsupported control flow in loop.
+src/pipeline.cpp:416:27: missed: couldn't vectorize loop
+src/pipeline.cpp:416:27: missed: not vectorized: unsupported control flow in loop.
+src/pipeline.cpp:421:57: missed: couldn't vectorize loop
+src/pipeline.cpp:421:57: missed: not vectorized: unsupported control flow in loop.
+src/pipeline.cpp:422:47: missed: couldn't vectorize loop
+src/pipeline.cpp:422:47: missed: not vectorized: unsupported control flow in loop.
+src/pipeline.cpp:387:23: missed: couldn't vectorize loop
+src/pipeline.cpp:387:23: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+src/pipeline.cpp:389:30: missed: couldn't vectorize loop
+src/pipeline.cpp:389:30: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+src/pipeline.cpp:395:34: missed: couldn't vectorize loop
+src/pipeline.cpp:395:34: missed: not vectorized: multiple nested loops.
+src/pipeline.cpp:398:38: missed: couldn't vectorize loop
+src/pipeline.cpp:403:30: missed: not vectorized: complicated access pattern.
+src/pipeline.cpp:365:7: missed: splitting region at control altering definition _359 = operator new (_76);
+src/pipeline.cpp:376:47: missed: statement clobbers memory: padded = pad_replicate (gray_89(D), m_95); [return slot optimization]
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: not vectorized: statement can throw an exception: _359 = operator new (_76);
+src/pipeline.cpp:368:27: missed: splitting region at dominance boundary bb16
+src/pipeline.cpp:368:27: missed: splitting region at dominance boundary bb18
+/usr/include/c++/15/bits/stl_construct.h:133:7: missed: statement clobbers memory: __builtin_memset (_359, 0, _484);
+/usr/include/c++/15/bits/stl_construct.h:133:7: missed: splitting region at control altering definition _288 = operator new (_287);
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: not vectorized: statement can throw an exception: _288 = operator new (_287);
+src/image.hpp:23:11: missed: splitting region at dominance boundary bb23
+src/image.hpp:23:11: missed: splitting region at control altering definition _309 = operator new (_287);
+/usr/include/c++/15/bits/stl_algobase.h:925:11: missed: statement clobbers memory: __builtin_memset (__first_289, 0, _480);
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: not vectorized: statement can throw an exception: _309 = operator new (_287);
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: splitting region at dominance boundary bb30
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: splitting region at dominance boundary bb24
+/usr/include/c++/15/bits/stl_algobase.h:925:11: missed: statement clobbers memory: __builtin_memset (__first_310, 0, _476);
+/usr/include/c++/15/bits/stl_algobase.h:925:11: missed: splitting region at control altering definition _74 = operator new (4);
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: not vectorized: statement can throw an exception: _74 = operator new (4);
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: splitting region at dominance boundary bb25
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: splitting region at dominance boundary bb32
+/usr/include/c++/15/bits/stl_construct.h:133:7: missed: splitting region at dominance boundary bb34
+/usr/include/c++/15/bits/stl_iterator_base_funcs.h:108:21: missed: splitting region at dominance boundary bb56
+/usr/include/c++/15/bits/stl_algobase.h:925:11: missed: statement clobbers memory: __builtin_memset (_251, 0, _485);
+/usr/include/c++/15/bits/stl_algobase.h:426:25: missed: statement clobbers memory: __builtin_memcpy (_109, _190, _324);
+src/pipeline.cpp:365:7: missed: splitting region at dominance boundary bb59
+/usr/include/c++/15/bits/stl_vector.h:106:4: missed: splitting region at dominance boundary bb57
+/usr/include/c++/15/bits/stl_vector.h:407:34: missed: splitting region at control altering definition _340 = operator new (_12);
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: not vectorized: statement can throw an exception: _340 = operator new (_12);
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: splitting region at dominance boundary bb93
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_343, _342);
+src/pipeline.cpp:365:7: missed: not vectorized: statement can throw an exception: resx 25
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: splitting region at dominance boundary bb58
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_280, _260);
+src/pipeline.cpp:365:7: missed: not vectorized: statement can throw an exception: resx 20
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: splitting region at dominance boundary bb60
+/usr/include/c++/15/bits/stl_uninitialized.h:553:25: missed: statement clobbers memory: __builtin_memset (_340, 0, _12);
+/usr/include/c++/15/bits/stl_uninitialized.h:553:25: missed: splitting region at dominance boundary bb19
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_421, _408);
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_249, _408);
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_216, _121);
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (pretmp_503, _188);
+src/pipeline.cpp:425:32: missed: splitting region at dominance boundary bb98
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: not vectorized: statement can throw an exception: std::__throw_length_error ("cannot create std::vector larger than max_size()");
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: splitting region at dominance boundary bb12
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_216, _121);
+src/pipeline.cpp:365:7: missed: not vectorized: statement can throw an exception: resx 15
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: splitting region at dominance boundary bb103
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: not vectorized: statement can throw an exception: std::__throw_length_error ("cannot create std::vector larger than max_size()");
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: splitting region at dominance boundary bb9
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_213, _215);
+src/image.hpp:14:8: missed: splitting region at dominance boundary bb6
+src/pipeline.cpp:371:99: missed: statement clobbers memory: _148 = __cxa_allocate_exception (16);
+src/pipeline.cpp:371:99: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_148, "detect_corners_moravec: window_radius demasiado grande (max 64)");
+src/pipeline.cpp:371:99: missed: statement clobbers memory: __cxa_throw (_148, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:371:99: missed: statement clobbers memory: __cxa_free_exception (_148);
+src/pipeline.cpp:371:99: missed: splitting region at dominance boundary bb3
+src/pipeline.cpp:368:113: missed: statement clobbers memory: _153 = __cxa_allocate_exception (16);
+src/pipeline.cpp:368:113: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_153, "detect_corners_moravec: radios negativos");
+src/pipeline.cpp:368:113: missed: statement clobbers memory: __cxa_throw (_153, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:368:113: missed: statement clobbers memory: __cxa_free_exception (_153);
+src/pipeline.cpp:367:93: missed: statement clobbers memory: _158 = __cxa_allocate_exception (16);
+src/pipeline.cpp:367:93: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_158, "detect_corners_moravec espera 1 canal");
+src/pipeline.cpp:367:93: missed: statement clobbers memory: __cxa_throw (_158, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:367:93: missed: statement clobbers memory: __cxa_free_exception (_158);
+src/pipeline.cpp:458:23: missed: couldn't vectorize loop
+src/pipeline.cpp:458:23: missed: not vectorized: unsupported control flow in loop.
+src/pipeline.cpp:459:27: missed: couldn't vectorize loop
+src/pipeline.cpp:459:27: missed: not vectorized: unsupported control flow in loop.
+src/pipeline.cpp:461:39: missed: couldn't vectorize loop
+src/pipeline.cpp:461:39: missed: not vectorized: unsupported control flow in loop.
+src/pipeline.cpp:462:43: missed: couldn't vectorize loop
+src/pipeline.cpp:462:43: missed: not vectorized: unsupported control flow in loop.
+src/pipeline.cpp:447:23: missed: couldn't vectorize loop
+src/pipeline.cpp:447:23: missed: not vectorized: unsupported control flow in loop.
+src/pipeline.cpp:448:27: missed: couldn't vectorize loop
+src/pipeline.cpp:448:27: missed: not vectorized: unsupported control flow in loop.
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: statement clobbers memory: _171 = operator new (_159);
+/usr/include/c++/15/bits/stl_uninitialized.h:273:24: missed: statement clobbers memory: __builtin_memcpy (_172, _162, __n.72_164);
+src/pipeline.cpp:443:116: missed: statement clobbers memory: _61 = __cxa_allocate_exception (16);
+src/pipeline.cpp:443:116: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_61, "compose_annotated: los mapas deben ser de 1 canal y del tamano de la imagen base");
+src/pipeline.cpp:443:116: missed: statement clobbers memory: __cxa_throw (_61, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:443:116: missed: statement clobbers memory: __cxa_free_exception (_61);
+src/pipeline.cpp:439:93: missed: statement clobbers memory: _66 = __cxa_allocate_exception (16);
+src/pipeline.cpp:439:93: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_66, "compose_annotated espera base RGB");
+src/pipeline.cpp:439:93: missed: statement clobbers memory: __cxa_throw (_66, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:439:93: missed: statement clobbers memory: __cxa_free_exception (_66);
+src/pipeline.cpp:498:18: missed: couldn't vectorize loop
+src/pipeline.cpp:501:16: missed: not vectorized: unsupported use in stmt.
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: missed: statement clobbers memory: __builtin___memcpy_chk (&v, _12, _11, 8);
+src/pipeline.cpp:516:6: missed: splitting region at control altering definition D.73308 = std::operator+.isra ("Error escribiendo ", _67, _68); [return slot optimization]
+src/pipeline.cpp:519:25: missed: statement clobbers memory: _19 = fopen (_20, "wb");
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:111:24: missed: statement clobbers memory: _25 = __fprintf_chk (_19, 2, "%s\n%d %d\n255\n", iftmp.76_5, _3, _2);
+src/pipeline.cpp:524:39: missed: statement clobbers memory: _22 = fwrite (_45, 1, _47, _19);
+src/pipeline.cpp:525:38: missed: statement clobbers memory: _24 = fclose (_19);
+src/pipeline.cpp:527:61: missed: statement clobbers memory: _27 = __cxa_allocate_exception (16);
+src/pipeline.cpp:527:57: missed: not vectorized: statement can throw an exception: D.73308 = std::operator+.isra ("Error escribiendo ", _67, _68); [return slot optimization]
+src/pipeline.cpp:516:6: missed: splitting region at dominance boundary bb29
+src/pipeline.cpp:527:61: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_27, &D.73308);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.73308);
+src/pipeline.cpp:527:61: missed: statement clobbers memory: __cxa_throw (_27, &_ZTISt13runtime_error, __dt_comp );
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.73308);
+src/pipeline.cpp:516:6: missed: not vectorized: statement can throw an exception: resx 19
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb23
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb6
+src/pipeline.cpp:527:61: missed: statement clobbers memory: __cxa_free_exception (_27);
+src/pipeline.cpp:527:61: missed: splitting region at control altering definition D.73271 = std::operator+.isra ("No se pudo abrir ", _69, _70); [return slot optimization]
+src/pipeline.cpp:520:84: missed: statement clobbers memory: _35 = __cxa_allocate_exception (16);
+src/pipeline.cpp:520:60: missed: not vectorized: statement can throw an exception: D.73271 = std::operator+.isra ("No se pudo abrir ", _69, _70); [return slot optimization]
+src/pipeline.cpp:520:60: missed: splitting region at control altering definition _17 = std::__cxx11::basic_string<char>::append (&D.73271, " para escritura");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: not vectorized: statement can throw an exception: _17 = std::__cxx11::basic_string<char>::append (&D.73271, " para escritura");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb8
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb20
+/usr/include/c++/15/bits/basic_string.h:3975:43: missed: statement clobbers memory: std::__cxx11::basic_string<char>::basic_string (&D.73272, _17);
+src/pipeline.cpp:520:84: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_35, &D.73272);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.73272);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.73271);
+src/pipeline.cpp:520:84: missed: statement clobbers memory: __cxa_throw (_35, &_ZTISt13runtime_error, __dt_comp );
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.73272);
+src/pipeline.cpp:516:6: missed: not vectorized: statement can throw an exception: resx 7
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb24
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.73271);
+src/pipeline.cpp:516:6: missed: not vectorized: statement can throw an exception: resx 6
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb21
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb3
+src/pipeline.cpp:520:84: missed: statement clobbers memory: __cxa_free_exception (_35);
+src/pipeline.cpp:517:112: missed: statement clobbers memory: _12 = __cxa_allocate_exception (16);
+src/pipeline.cpp:517:112: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_12, "write_pnm solo soporta 1 o 3 canales");
+src/pipeline.cpp:517:112: missed: statement clobbers memory: __cxa_throw (_12, &_ZTISt13runtime_error, __dt_comp );
+src/pipeline.cpp:517:112: missed: statement clobbers memory: __cxa_free_exception (_12);
+/usr/include/c++/15/bits/basic_string.h:2462:19: missed: statement clobbers memory: _44 = std::__cxx11::basic_string<char>::_M_replace (__rhs_5(D), 0, 0, _8, __sz_15);
+/usr/include/c++/15/bits/char_traits.h:429:49: missed: statement clobbers memory: __builtin_memcpy (_34, _36, _39);
+/usr/include/c++/15/bits/basic_string.h:1570:18: missed: statement clobbers memory: _33 = std::__cxx11::basic_string<char>::_M_append (__lhs_3(D), _43, __sz_14);
+/usr/include/c++/15/bits/char_traits.h:429:49: missed: statement clobbers memory: __builtin_memcpy (_24, _26, _29);
+/usr/include/c++/15/bits/basic_string.h:423:24: missed: statement clobbers memory: std::__throw_length_error ("basic_string::append");
+src/pipeline.cpp:57:7: missed: splitting region at control altering definition magic = read_pnm_token (_46); [return slot optimization]
+src/pipeline.cpp:58:45: missed: statement clobbers memory: _46 = fopen (_50, "rb");
+src/pipeline.cpp:61:53: missed: not vectorized: statement can throw an exception: magic = read_pnm_token (_46); [return slot optimization]
+src/pipeline.cpp:61:53: missed: splitting region at control altering definition D.70087 = std::operator+.isra (_405, _406, ": formato PNM no soportado (\'"); [return slot optimization]
+/usr/include/c++/15/bits/char_traits.h:383:25: missed: statement clobbers memory: _412 = __builtin_memcmp (_414, "P6", 2);
+/usr/include/c++/15/bits/char_traits.h:383:25: missed: statement clobbers memory: _417 = __builtin_memcmp (_414, "P5", 2);
+src/pipeline.cpp:65:109: missed: statement clobbers memory: _53 = __cxa_allocate_exception (16);
+src/pipeline.cpp:65:42: missed: not vectorized: statement can throw an exception: D.70087 = std::operator+.isra (_405, _406, ": formato PNM no soportado (\'"); [return slot optimization]
+src/pipeline.cpp:65:42: missed: splitting region at control altering definition _422 = std::__cxx11::basic_string<char>::append (&D.70087, _403, _404);
+/usr/include/c++/15/bits/basic_string.h:1536:28: missed: not vectorized: statement can throw an exception: _422 = std::__cxx11::basic_string<char>::append (&D.70087, _403, _404);
+/usr/include/c++/15/bits/basic_string.h:1536:28: missed: splitting region at dominance boundary bb17
+/usr/include/c++/15/bits/basic_string.h:1536:28: missed: splitting region at control altering definition _204 = std::__cxx11::basic_string<char>::append (&D.70088, "\'), se esperaba P5 o P6");
+/usr/include/c++/15/bits/basic_string.h:3924:43: missed: statement clobbers memory: std::__cxx11::basic_string<char>::basic_string (&D.70088, _422);
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: not vectorized: statement can throw an exception: _204 = std::__cxx11::basic_string<char>::append (&D.70088, "\'), se esperaba P5 o P6");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb18
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb110
+/usr/include/c++/15/bits/basic_string.h:3975:43: missed: statement clobbers memory: std::__cxx11::basic_string<char>::basic_string (&D.70089, _204);
+src/pipeline.cpp:65:109: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_53, &D.70089);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70089);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70088);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70087);
+src/pipeline.cpp:65:109: missed: not vectorized: statement can throw an exception: __cxa_throw (_53, &_ZTISt13runtime_error, __dt_comp );
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70089);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 24
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb113
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70088);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 23
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb223
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70087);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 22
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb115
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb116
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb221
+src/pipeline.cpp:65:109: missed: statement clobbers memory: __cxa_free_exception (_53);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 18
+src/pipeline.cpp:65:109: missed: splitting region at dominance boundary bb220
+src/pipeline.cpp:65:109: missed: splitting region at dominance boundary bb20
+src/pipeline.cpp:65:109: missed: splitting region at control altering definition D.70093 = read_pnm_token (_46); [return slot optimization]
+src/pipeline.cpp:67:51: missed: not vectorized: statement can throw an exception: D.70093 = read_pnm_token (_46); [return slot optimization]
+src/pipeline.cpp:67:51: missed: splitting region at control altering definition _68 = parse_pnm_int (&D.70093, path_43(D), "ancho");
+src/pipeline.cpp:67:36: missed: not vectorized: statement can throw an exception: _68 = parse_pnm_int (&D.70093, path_43(D), "ancho");
+src/pipeline.cpp:67:36: missed: splitting region at control altering definition D.70095 = read_pnm_token (_46); [return slot optimization]
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_423, _426);
+src/pipeline.cpp:68:52: missed: not vectorized: statement can throw an exception: D.70095 = read_pnm_token (_46); [return slot optimization]
+src/pipeline.cpp:68:52: missed: splitting region at control altering definition _73 = parse_pnm_int (&D.70095, path_43(D), "alto");
+src/pipeline.cpp:68:37: missed: not vectorized: statement can throw an exception: _73 = parse_pnm_int (&D.70095, path_43(D), "alto");
+src/pipeline.cpp:68:37: missed: splitting region at control altering definition D.70097 = read_pnm_token (_46); [return slot optimization]
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_429, _432);
+src/pipeline.cpp:69:52: missed: not vectorized: statement can throw an exception: D.70097 = read_pnm_token (_46); [return slot optimization]
+src/pipeline.cpp:69:52: missed: splitting region at control altering definition _78 = parse_pnm_int (&D.70097, path_43(D), "maxval");
+src/pipeline.cpp:69:37: missed: not vectorized: statement can throw an exception: _78 = parse_pnm_int (&D.70097, path_43(D), "maxval");
+src/pipeline.cpp:69:37: missed: splitting region at control altering definition _83 = ftell (_46);
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_435, _438);
+src/pipeline.cpp:84:39: missed: not vectorized: statement can throw an exception: _83 = ftell (_46);
+src/pipeline.cpp:70:20: missed: splitting region at control altering definition _88 = ftell (_46);
+src/pipeline.cpp:85:38: missed: statement clobbers memory: _8 = fseek (_46, 0, 2);
+src/pipeline.cpp:86:41: missed: not vectorized: statement can throw an exception: _88 = ftell (_46);
+src/pipeline.cpp:86:41: missed: splitting region at dominance boundary bb78
+src/pipeline.cpp:87:23: missed: statement clobbers memory: _9 = fseek (_46, _83, 0);
+src/pipeline.cpp:89:9: missed: splitting region at dominance boundary bb66
+/usr/include/c++/15/bits/stl_vector.h:2216:24: missed: not vectorized: statement can throw an exception: std::__throw_length_error ("cannot create std::vector larger than max_size()");
+src/image.hpp:23:11: missed: splitting region at dominance boundary bb81
+src/image.hpp:23:11: missed: splitting region at control altering definition _452 = operator new (expected_80);
+/usr/include/c++/15/bits/new_allocator.h:151:66: missed: not vectorized: statement can throw an exception: _452 = operator new (expected_80);
+/usr/include/c++/15/bits/stl_vector.h:106:4: missed: splitting region at dominance boundary bb83
+/usr/include/c++/15/bits/stl_vector.h:106:4: missed: splitting region at control altering definition _81 = __fread_alias (_452, 1, expected_80, _46);
+/usr/include/c++/15/bits/stl_uninitialized.h:553:25: missed: statement clobbers memory: __builtin_memset (_452, 0, expected_80);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:331:26: missed: not vectorized: statement can throw an exception: _81 = __fread_alias (_452, 1, expected_80, _46);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:331:26: missed: splitting region at dominance boundary bb84
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:331:26: missed: splitting region at control altering definition D.70167 = std::__cxx11::to_string (expected_80); [return slot optimization]
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_455, _458);
+src/pipeline.cpp:15:56: missed: statement clobbers memory: fclose (_46);
+src/pipeline.cpp:98:112: missed: statement clobbers memory: _127 = __cxa_allocate_exception (16);
+src/pipeline.cpp:98:96: missed: not vectorized: statement can throw an exception: D.70167 = std::__cxx11::to_string (expected_80); [return slot optimization]
+src/pipeline.cpp:98:96: missed: splitting region at control altering definition D.70164 = std::__cxx11::to_string (_81); [return slot optimization]
+src/pipeline.cpp:97:80: missed: not vectorized: statement can throw an exception: D.70164 = std::__cxx11::to_string (_81); [return slot optimization]
+src/pipeline.cpp:97:80: missed: splitting region at control altering definition D.70163 = std::operator+.isra (_393, _394, ": los bytes leidos ("); [return slot optimization]
+src/pipeline.cpp:97:41: missed: not vectorized: statement can throw an exception: D.70163 = std::operator+.isra (_393, _394, ": los bytes leidos ("); [return slot optimization]
+src/pipeline.cpp:97:41: missed: splitting region at control altering definition D.70165 = std::operator+<char, std::char_traits<char>, std::allocator<char> > (&D.70163, &D.70164); [return slot optimization]
+src/pipeline.cpp:97:84: missed: not vectorized: statement can throw an exception: D.70165 = std::operator+<char, std::char_traits<char>, std::allocator<char> > (&D.70163, &D.70164); [return slot optimization]
+src/pipeline.cpp:97:84: missed: splitting region at control altering definition _213 = std::__cxx11::basic_string<char>::append (&D.70165, ") no coinciden con width*height*channels (");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: not vectorized: statement can throw an exception: _213 = std::__cxx11::basic_string<char>::append (&D.70165, ") no coinciden con width*height*channels (");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb90
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at control altering definition D.70168 = std::operator+<char, std::char_traits<char>, std::allocator<char> > (&D.70166, &D.70167); [return slot optimization]
+/usr/include/c++/15/bits/basic_string.h:3975:43: missed: statement clobbers memory: std::__cxx11::basic_string<char>::basic_string (&D.70166, _213);
+src/pipeline.cpp:98:105: missed: not vectorized: statement can throw an exception: D.70168 = std::operator+<char, std::char_traits<char>, std::allocator<char> > (&D.70166, &D.70167); [return slot optimization]
+src/pipeline.cpp:98:105: missed: splitting region at control altering definition _214 = std::__cxx11::basic_string<char>::append (&D.70168, ")");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: not vectorized: statement can throw an exception: _214 = std::__cxx11::basic_string<char>::append (&D.70168, ")");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb92
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb186
+/usr/include/c++/15/bits/basic_string.h:3975:43: missed: statement clobbers memory: std::__cxx11::basic_string<char>::basic_string (&D.70169, _214);
+src/pipeline.cpp:98:112: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_127, &D.70169);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70169);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70168);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70166);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70165);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70163);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70164);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70167);
+src/pipeline.cpp:98:112: missed: not vectorized: statement can throw an exception: __cxa_throw (_127, &_ZTISt13runtime_error, __dt_comp );
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70169);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 187
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb188
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70168);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 186
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb189
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb192
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70166);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 185
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb194
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70165);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 184
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb195
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb197
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70163);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 183
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb198
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb200
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70164);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 181
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb201
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb203
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70167);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 177
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb204
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb207
+src/pipeline.cpp:98:112: missed: statement clobbers memory: __cxa_free_exception (_127);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 173
+src/pipeline.cpp:98:112: missed: splitting region at dominance boundary bb67
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: statement clobbers memory: operator delete (_216, _218);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 172
+/usr/include/c++/15/bits/new_allocator.h:172:59: missed: splitting region at control altering definition D.70129 = std::__cxx11::to_string (_10); [return slot optimization]
+src/pipeline.cpp:91:115: missed: statement clobbers memory: _91 = __cxa_allocate_exception (16);
+src/pipeline.cpp:91:86: missed: not vectorized: statement can throw an exception: D.70129 = std::__cxx11::to_string (_10); [return slot optimization]
+src/pipeline.cpp:91:86: missed: splitting region at control altering definition D.70126 = std::__cxx11::to_string (expected_80); [return slot optimization]
+src/pipeline.cpp:90:97: missed: not vectorized: statement can throw an exception: D.70126 = std::__cxx11::to_string (expected_80); [return slot optimization]
+src/pipeline.cpp:90:97: missed: splitting region at control altering definition D.70125 = std::operator+.isra (_395, _396, ": archivo truncado (se esperaban "); [return slot optimization]
+src/pipeline.cpp:90:45: missed: not vectorized: statement can throw an exception: D.70125 = std::operator+.isra (_395, _396, ": archivo truncado (se esperaban "); [return slot optimization]
+src/pipeline.cpp:90:45: missed: splitting region at control altering definition D.70127 = std::operator+<char, std::char_traits<char>, std::allocator<char> > (&D.70125, &D.70126); [return slot optimization]
+src/pipeline.cpp:90:106: missed: not vectorized: statement can throw an exception: D.70127 = std::operator+<char, std::char_traits<char>, std::allocator<char> > (&D.70125, &D.70126); [return slot optimization]
+src/pipeline.cpp:90:106: missed: splitting region at control altering definition _209 = std::__cxx11::basic_string<char>::append (&D.70127, " bytes de imagen y solo hay ");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: not vectorized: statement can throw an exception: _209 = std::__cxx11::basic_string<char>::append (&D.70127, " bytes de imagen y solo hay ");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb72
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at control altering definition D.70130 = std::operator+<char, std::char_traits<char>, std::allocator<char> > (&D.70128, &D.70129); [return slot optimization]
+/usr/include/c++/15/bits/basic_string.h:3975:43: missed: statement clobbers memory: std::__cxx11::basic_string<char>::basic_string (&D.70128, _209);
+src/pipeline.cpp:91:108: missed: not vectorized: statement can throw an exception: D.70130 = std::operator+<char, std::char_traits<char>, std::allocator<char> > (&D.70128, &D.70129); [return slot optimization]
+src/pipeline.cpp:91:108: missed: splitting region at control altering definition _210 = std::__cxx11::basic_string<char>::append (&D.70130, ")");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: not vectorized: statement can throw an exception: _210 = std::__cxx11::basic_string<char>::append (&D.70130, ")");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb74
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb163
+/usr/include/c++/15/bits/basic_string.h:3975:43: missed: statement clobbers memory: std::__cxx11::basic_string<char>::basic_string (&D.70131, _210);
+src/pipeline.cpp:91:115: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_91, &D.70131);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70131);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70130);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70128);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70127);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70125);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70126);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70129);
+src/pipeline.cpp:91:115: missed: not vectorized: statement can throw an exception: __cxa_throw (_91, &_ZTISt13runtime_error, __dt_comp );
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70131);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 142
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb165
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70130);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 141
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb166
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb169
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70128);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 140
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb171
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70127);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 139
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb172
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb174
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70125);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 138
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb175
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb177
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70126);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 136
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb178
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb180
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70129);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 132
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb181
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb61
+src/pipeline.cpp:91:115: missed: statement clobbers memory: __cxa_free_exception (_91);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 128
+src/pipeline.cpp:91:115: missed: splitting region at control altering definition D.70122 = std::operator+.isra (_397, _398, ": no se pudo reposicionar el archivo tras la cabecera"); [return slot optimization]
+src/pipeline.cpp:88:100: missed: statement clobbers memory: _115 = __cxa_allocate_exception (16);
+src/pipeline.cpp:88:45: missed: not vectorized: statement can throw an exception: D.70122 = std::operator+.isra (_397, _398, ": no se pudo reposicionar el archivo tras la cabecera"); [return slot optimization]
+src/pipeline.cpp:88:45: missed: splitting region at dominance boundary bb157
+src/pipeline.cpp:88:100: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_115, &D.70122);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70122);
+src/pipeline.cpp:88:100: missed: not vectorized: statement can throw an exception: __cxa_throw (_115, &_ZTISt13runtime_error, __dt_comp );
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70122);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 122
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb158
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb59
+src/pipeline.cpp:88:100: missed: statement clobbers memory: __cxa_free_exception (_115);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 120
+src/pipeline.cpp:88:100: missed: splitting region at dominance boundary bb55
+src/pipeline.cpp:88:100: missed: splitting region at dominance boundary bb48
+src/pipeline.cpp:88:100: missed: splitting region at control altering definition D.70113 = std::operator+.isra (_399, _400, ": solo se soporta maxval=255 (tiene "); [return slot optimization]
+src/pipeline.cpp:73:110: missed: statement clobbers memory: _151 = __cxa_allocate_exception (16);
+src/pipeline.cpp:73:96: missed: statement clobbers memory: D.70114 = std::__cxx11::to_string (_78); [return slot optimization]
+src/pipeline.cpp:73:41: missed: not vectorized: statement can throw an exception: D.70113 = std::operator+.isra (_399, _400, ": solo se soporta maxval=255 (tiene "); [return slot optimization]
+src/pipeline.cpp:73:41: missed: splitting region at control altering definition D.70115 = std::operator+<char, std::char_traits<char>, std::allocator<char> > (&D.70113, &D.70114); [return slot optimization]
+src/pipeline.cpp:73:103: missed: not vectorized: statement can throw an exception: D.70115 = std::operator+<char, std::char_traits<char>, std::allocator<char> > (&D.70113, &D.70114); [return slot optimization]
+src/pipeline.cpp:73:103: missed: splitting region at control altering definition _208 = std::__cxx11::basic_string<char>::append (&D.70115, ")");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: not vectorized: statement can throw an exception: _208 = std::__cxx11::basic_string<char>::append (&D.70115, ")");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb51
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb146
+/usr/include/c++/15/bits/basic_string.h:3975:43: missed: statement clobbers memory: std::__cxx11::basic_string<char>::basic_string (&D.70116, _208);
+src/pipeline.cpp:73:110: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_151, &D.70116);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70116);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70115);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70113);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70114);
+src/pipeline.cpp:73:110: missed: not vectorized: statement can throw an exception: __cxa_throw (_151, &_ZTISt13runtime_error, __dt_comp );
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70116);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 102
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb148
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70115);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 101
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb149
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb151
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70113);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 100
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb152
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb39
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70114);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 98
+src/pipeline.cpp:73:110: missed: statement clobbers memory: __cxa_free_exception (_151);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 94
+src/pipeline.cpp:73:110: missed: splitting region at control altering definition D.70098 = std::operator+.isra (_401, _402, ": dimensiones invalidas ("); [return slot optimization]
+src/pipeline.cpp:71:129: missed: statement clobbers memory: _167 = __cxa_allocate_exception (16);
+src/pipeline.cpp:71:115: missed: statement clobbers memory: D.70108 = std::__cxx11::to_string (_73); [return slot optimization]
+src/pipeline.cpp:71:85: missed: statement clobbers memory: D.70099 = std::__cxx11::to_string (_68); [return slot optimization]
+src/pipeline.cpp:71:41: missed: not vectorized: statement can throw an exception: D.70098 = std::operator+.isra (_401, _402, ": dimensiones invalidas ("); [return slot optimization]
+src/pipeline.cpp:71:41: missed: splitting region at control altering definition D.70106 = std::operator+<char, std::char_traits<char>, std::allocator<char> > (&D.70098, &D.70099); [return slot optimization]
+src/pipeline.cpp:71:91: missed: not vectorized: statement can throw an exception: D.70106 = std::operator+<char, std::char_traits<char>, std::allocator<char> > (&D.70098, &D.70099); [return slot optimization]
+src/pipeline.cpp:71:91: missed: splitting region at control altering definition _206 = std::__cxx11::basic_string<char>::append (&D.70106, "x");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: not vectorized: statement can throw an exception: _206 = std::__cxx11::basic_string<char>::append (&D.70106, "x");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb42
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at control altering definition D.70109 = std::operator+<char, std::char_traits<char>, std::allocator<char> > (&D.70107, &D.70108); [return slot optimization]
+/usr/include/c++/15/bits/basic_string.h:3975:43: missed: statement clobbers memory: std::__cxx11::basic_string<char>::basic_string (&D.70107, _206);
+src/pipeline.cpp:71:122: missed: not vectorized: statement can throw an exception: D.70109 = std::operator+<char, std::char_traits<char>, std::allocator<char> > (&D.70107, &D.70108); [return slot optimization]
+src/pipeline.cpp:71:122: missed: splitting region at control altering definition _207 = std::__cxx11::basic_string<char>::append (&D.70109, ")");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: not vectorized: statement can throw an exception: _207 = std::__cxx11::basic_string<char>::append (&D.70109, ")");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb44
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb127
+/usr/include/c++/15/bits/basic_string.h:3975:43: missed: statement clobbers memory: std::__cxx11::basic_string<char>::basic_string (&D.70110, _207);
+src/pipeline.cpp:71:129: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_167, &D.70110);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70110);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70109);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70107);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70106);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70098);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70099);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70108);
+src/pipeline.cpp:71:129: missed: not vectorized: statement can throw an exception: __cxa_throw (_167, &_ZTISt13runtime_error, __dt_comp );
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70110);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 64
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb129
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70109);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 63
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb130
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb133
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70107);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 62
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb135
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70106);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 61
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb136
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb138
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70098);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 60
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb139
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb228
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70099);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 58
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70108);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 54
+src/pipeline.cpp:71:129: missed: statement clobbers memory: __cxa_free_exception (_167);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 50
+src/pipeline.cpp:71:129: missed: splitting region at dominance boundary bb122
+src/pipeline.cpp:71:129: missed: splitting region at dominance boundary bb33
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70097);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 47
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb226
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb120
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb27
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70095);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 43
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb224
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb118
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb21
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70093);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 39
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb212
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb218
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&magic);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 17
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb10
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb8
+/usr/include/c++/15/bits/basic_string.h:1167:26: missed: splitting region at dominance boundary bb3
+/usr/include/c++/15/bits/basic_string.h:1167:26: missed: splitting region at control altering definition D.70077 = std::operator+.isra ("No se pudo abrir \'", _407, _408); [return slot optimization]
+src/pipeline.cpp:59:84: missed: statement clobbers memory: _194 = __cxa_allocate_exception (16);
+src/pipeline.cpp:59:61: missed: not vectorized: statement can throw an exception: D.70077 = std::operator+.isra ("No se pudo abrir \'", _407, _408); [return slot optimization]
+src/pipeline.cpp:59:61: missed: splitting region at control altering definition _44 = std::__cxx11::basic_string<char>::append (&D.70077, "\' para lectura");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: not vectorized: statement can throw an exception: _44 = std::__cxx11::basic_string<char>::append (&D.70077, "\' para lectura");
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb5
+/usr/include/c++/15/bits/basic_string.h:3975:36: missed: splitting region at dominance boundary bb102
+/usr/include/c++/15/bits/basic_string.h:3975:43: missed: statement clobbers memory: std::__cxx11::basic_string<char>::basic_string (&D.70078, _44);
+src/pipeline.cpp:59:84: missed: not vectorized: statement can throw an exception: std::runtime_error::runtime_error (_194, &D.70078);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70078);
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70077);
+src/pipeline.cpp:59:84: missed: not vectorized: statement can throw an exception: __cxa_throw (_194, &_ZTISt13runtime_error, __dt_comp );
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70078);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 7
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb104
+/usr/include/c++/15/bits/basic_string.h:896:19: missed: statement clobbers memory: std::__cxx11::basic_string<char>::_M_dispose (&D.70077);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 6
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb105
+/usr/include/c++/15/bits/basic_string.h:896:23: missed: splitting region at dominance boundary bb215
+src/pipeline.cpp:59:84: missed: statement clobbers memory: __cxa_free_exception (_194);
+src/pipeline.cpp:57:7: missed: not vectorized: statement can throw an exception: resx 3
+src/pipeline.cpp:15:56: missed: statement clobbers memory: fclose (_46);
